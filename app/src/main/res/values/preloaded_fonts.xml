@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/arizonia</item>
+        <item>@font/euphoria_script</item>
+        <item>@font/rouge_script</item>
+        <item>@font/yellowtail</item>
+        <item>@font/yesteryear</item>
+    </array>
+</resources>

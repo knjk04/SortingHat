@@ -1,7 +1,7 @@
 * Sorting hat
   Android app that informs you of your Hogwarts house based on your responses to the questions (a quiz)
 
-  [[file:repoMedia/first2ScreensQuarterRes.png]]
+  [[file:repoMedia/allQuarterRes.png]]
 
 * Support
   Android 4.4 KitKat and above (API 19 and later, SDK 19)

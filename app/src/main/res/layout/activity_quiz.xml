@@ -23,6 +23,7 @@
         tools:text="Can you all hear me? ~ Lockhart" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="320dp"
         android:layout_height="320dp"
         android:layout_marginBottom="8dp"

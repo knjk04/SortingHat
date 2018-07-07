@@ -1,4 +1,9 @@
-#+TOC: listings
+* Table of contents
+  - [[https://github.com/knjk04/SortingHat/tree/feature#what-is-sorting-hat][Intro: What is Sorting Hat?]]
+  - [[https://github.com/knjk04/SortingHat/tree/feature#modifying-the-questionsanswers][Making your own changes]]
+  - [[https://github.com/knjk04/SortingHat/tree/feature#support][Support]]
+  - [[https://github.com/knjk04/SortingHat/tree/feature#contributions][Contributing]]
+  - [[https://github.com/knjk04/SortingHat/tree/feature#acknowledgements][Acknowledgements]]
 
 * What is Sorting hat?
   Android app that informs you of your Hogwarts house based on your responses to the questions (a quiz)
@@ -25,8 +30,8 @@
   Please follow this pattern for subsequent questions. 
   
   Notes:
-  - There has to be 4 options currently. Hopefully, this will be changed to be flexible 
-    *This may mean that the format may change. If it does, this section will be updated accordingly*
+  - There has to be 4 options currently. Hopefully, this will be changed to be flexible.
+    - *This may mean that the format may change. If it does, this section will be updated accordingly*
 
   - Line breaks are not permitted since it will be mistaken for something else (e.g. option 1 if on the second line)  
 
@@ -40,11 +45,14 @@
 
   If you have tested the app on a device that is not listed above, please add your device to the table!
 
-* Contributions
+* Contributing
   - All contributions are very much appreciated :) 
 
   - This README was made using Org mode with Emacs. Please respect this (use Org mode syntax) if you would like to make 
     any changes to the README
+
+  - If you would like to work on a new feature, we kindly request that you let us know, so that someone else doesn't spend time
+    working on the same thing
 
 * Acknowledgements
   - I don't own any of the Harry Potter rights, so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.

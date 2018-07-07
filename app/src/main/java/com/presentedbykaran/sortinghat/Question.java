@@ -1,5 +1,13 @@
 package com.presentedbykaran.sortinghat;
 
+import android.content.Context;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 /**
  * Created by karan on 30/06/18
  */
@@ -7,7 +15,8 @@ public class Question {
 
     private static final String TAG = "QuestionsAndAnswers";
 
-    private String question;
+    private ArrayList<String> questions = new ArrayList<>();
+//    private String question;
     private String option1;
     private String option2;
     private String option3;
@@ -18,8 +27,12 @@ public class Question {
     private House op3House;
     private House op4House;
 
-    public Question(String question, String option1, String option2, String option3, String option4, House op1House, House op2House, House op3House, House op4House) {
-        this.question = question;
+    private Context context;
+
+//    public Question(String question, String option1, String option2, String option3, String option4, House op1House, House op2House, House op3House, House op4House) {
+//        this.question = question;
+    public Question(Context context, String option1, String option2, String option3, String option4, House op1House, House op2House, House op3House, House op4House) {
+        this.context = context;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
@@ -28,14 +41,33 @@ public class Question {
         this.op2House = op2House;
         this.op3House = op3House;
         this.op4House = op4House;
+
+        initQuestions();
     }
 
-    public String getQuestion() {
-        return question;
+    private void initQuestions() {
+        String data = "";
+//        ArrayList<String> questionsList = new ArrayList<>();
+
+        InputStream inputStream = context.getResources().openRawResource(R.raw.questions);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+        if(inputStream != null) {
+            try {
+                while ((data = bufferedReader.readLine()) != null) {
+//                    questionsList.add(data);
+                    questions.add(data);
+                }
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public String getQuestion(int index) {
+        return questions.get(index);
+//        return question;
     }
 
     public String getOption1() {

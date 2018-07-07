@@ -126,7 +126,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     public void nextQuestion() {
         if(currentIndexVal <= NUM_QUESTIONS_TO_ASK) {
-            mTxtQuestion.setText(arrQAndA[currentIndexVal].getQuestion());
+            mTxtQuestion.setText(arrQAndA[currentIndexVal].getQuestion(currentIndexVal));
             rdBtn1.setText(arrQAndA[currentIndexVal].getOption1());
             rdBtn2.setText(arrQAndA[currentIndexVal].getOption2());
             rdBtn3.setText(arrQAndA[currentIndexVal].getOption3());
@@ -139,24 +139,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
 //        Log.d(TAG, "val of i before first q: " + i);
 
-        String data = "";
-        ArrayList<String> questionsList = new ArrayList<>();
 
-        InputStream inputStream = this.getResources().openRawResource(R.raw.questions);
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-
-        if(inputStream != null) {
-            try {
-                while ((data = bufferedReader.readLine()) != null) {
-                    questionsList.add(data);
-                }
-                inputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        arrQAndA[i++] = new Question(questionsList.get(0),
+        arrQAndA[i++] = new Question(this,
                 "The small tortoiseshell box, embellished with gold, inside " +
                         "which some small creature seems to be squeaking.",
                 "The gleaming jet black box with a silver lock and key, " +
@@ -169,12 +153,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         "scratched message upon it that reads ‘I open only for the " +
                         "worthy.’", House.Hufflepuff, House.Slytherin, House.Ravenclaw,
                 House.Gryffindor);
+//        mTxtQuestion.setText(arrQAndA[i].getQuestion(i++));
 
-//        Log.d(TAG, "val of i after 1st q: " + i);
+        Log.d(TAG, "val of i after 1st q: " + i);
 
-        arrQAndA[i++] = new Question("You and two friends need to cross a bridge guarded by a " +
-                "river troll who insists on fighting one of you before he will let all of you pass. " +
-                "Do you:",
+        arrQAndA[i++] = new Question(this,
                 "Attempt to confuse the troll into letting all three of you pass without " +
                         "fighting?",
                 "Suggest drawing lots to decide which of you will fight?",
@@ -184,21 +167,16 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         Log.d(TAG, "val of i after 2nd q: " + i);
 
-       arrQAndA[i++] = new Question("Once every century, the Flutterby bush produces flowers that adapt their scent to " +
-                    "attract the unwary. If it lured you, it would smell of:",
+       arrQAndA[i++] = new Question(this,
                     "A crackling log fire",
                     "The sea",
                     "Fresh parchment",
                     "Home", House.Gryffindor, House.Slytherin, House.Ravenclaw,
                House.Hufflepuff);
-//
+
         Log.d(TAG, "val of i after 3rd q: " + i);
 
-       arrQAndA[i++] = new Question("One of your house mates has cheated in a Hogwarts exam " +
-               "by using a Self-Spelling Quill. Now he has come top of the class in Charms, beating " +
-               "you into second place. Professor Flitwick is suspicious of what happened. He draws " +
-               "you to one side after his lesson and asks you whether or not your classmate used a " +
-               "forbidden quill. What do you do?",
+       arrQAndA[i++] = new Question(this,
                 "Lie and say you don’t know (but hope that somebody else tells Professor " +
                         "Flitwick the truth).",
                 "Tell Professor Flitwick that he ought to ask your classmate (and resolve to " +
@@ -211,17 +189,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         "knew that somebody was using a forbidden quill, you would tell the teacher " +
                         "before the exam started.",House.Hufflepuff,House.Gryffindor,House.Ravenclaw,
                 House.Slytherin);
-//
-       arrQAndA[i++] = new Question("You enter an enchanted garden. What would you be most " +
-               "curious to examine first?",
+
+       arrQAndA[i++] = new Question(this,
                 "The silver leafed tree bearing golden apples",
                 "The fat red toadstools that appear to be talking to each other",
                 "The bubbling pool, in the depths of which something luminous is swirling",
                 "The statue of an old wizard with a strangely twinkling eye",
                  House.Ravenclaw, House.Hufflepuff, House.Slytherin, House.Gryffindor);
 
-       arrQAndA[i++] = new Question("Four goblets are placed before you. Which would you " +
-               "choose to drink?",
+       arrQAndA[i++] = new Question(this,
                 "The foaming, frothing, silvery liquid that sparkles as though containing " +
                         "ground diamonds.",
                 "The smooth, thick, richly purple drink that gives off a delicious smell of " +
@@ -232,30 +208,28 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         "make you see strange visions.",
                  House.Ravenclaw, House.Hufflepuff, House.Gryffindor, House.Slytherin);
 
-       arrQAndA[i++] = new Question("What kind of instrument most pleases your ear?",
+       arrQAndA[i++] = new Question(this,
                                     "The violin", "The trumpet", "The piano",
                                     "The drum", House.Slytherin, House.Hufflepuff,
                                      House.Ravenclaw, House.Gryffindor);
-//
-       arrQAndA[i++] = new Question("Which of the following would you most hate people to " +
-               "call you?", "Ordinary", "Ignorant", "Cowardly",
+
+       arrQAndA[i++] = new Question(this,
+               "Ordinary", "Ignorant", "Cowardly",
                "Selfish", House.Slytherin, House.Ravenclaw, House.Gryffindor,
                 House.Hufflepuff);
 
-       arrQAndA[i++] = new Question("After you have died, what would you most like people " +
-               "to do when they hear your name?",
+       arrQAndA[i++] = new Question(this,
                 "Miss you, but smile","Ask for more stories about your adventures",
                 "Think with admiration of your achievements",
                 "I don't care what people think of me after I'm dead; it's what they think of " +
                        "me while I'm alive that counts", House.Hufflepuff, House.Gryffindor,
                  House.Ravenclaw, House.Slytherin);
 
-       arrQAndA[i++] = new Question("How would you like to be known to history?",
+       arrQAndA[i++] = new Question(this,
                 "The Wise", "The Good", "The Great", "The Bold",
                  House.Ravenclaw, House.Hufflepuff, House.Slytherin, House.Gryffindor);
 
-       arrQAndA[i++] = new Question("A Muggle confronts you and says that they are sure you " +
-               "are a witch or wizard. Do you:",
+       arrQAndA[i++] = new Question(this,
                 "Ask what makes them think so?",
                 "Agree, and ask whether they’d like a free sample of a jinx?",
                 "Agree, and walk away, leaving them to wonder whether you are bluffing?",
@@ -263,7 +237,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         "a doctor.", House.Ravenclaw, House.Slytherin, House.Gryffindor,
                  House.Hufflepuff);
 
-       arrQAndA[i++] = new Question("Which nightmare would frighten you most?",
+       arrQAndA[i++] = new Question(this,
                 "Standing on top of something very high and realizing suddenly that there " +
                         "are no hand- or footholds, nor any barrier to stop you falling.",
                 "An eye at the keyhole of the dark, windowless room in which you are locked.",
@@ -273,21 +247,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         "understand you, and everyone laughs at you.",
                  House.Ravenclaw, House.Gryffindor, House.Hufflepuff, House.Slytherin);
 //
-       arrQAndA[i++] = new Question("Given the choice, would you rather invent a potion " +
-               "that would guarantee you:",
+       arrQAndA[i++] = new Question(this,
                 "Love?", "Glory?", "Wisdom?", "Power?",
                 House.Hufflepuff, House.Gryffindor, House.Ravenclaw, House.Slytherin);
 
-       arrQAndA[i++] = new Question("Which road tempts you most?",
+       arrQAndA[i++] = new Question(this,
                 "The wide, sunny, grassy lane", "The narrow, dark, lantern-lit " +
                "alley", "The twisting, leaf-strewn path through woods", "The cobbled " +
                "street lined with ancient buildings", House.Hufflepuff, House.Slytherin,
                 House.Gryffindor, House.Ravenclaw);
 
-       Log.d(TAG, "val of i before final q: " + i);
+//       Log.d(TAG, "val of i before final q: " + i);
 
-       arrQAndA[i++] = new Question("Late at night, walking alone down the street, you hear " +
-               "a peculiar cry that you believe to have a magical source. Do you:",
+       arrQAndA[i++] = new Question(this,
                "Proceed with caution, keeping one hand on your concealed wand and an eye out " +
                        "for any disturbance?",
                 "Draw your wand and try to discover the source of the noise?",

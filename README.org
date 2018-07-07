@@ -2,7 +2,7 @@
   - [[https://github.com/knjk04/SortingHat/tree/feature#what-is-sorting-hat][Intro: What is Sorting Hat?]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#modifying-the-questionsanswers][Making your own changes]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#support][Support]]
-  - [[https://github.com/knjk04/SortingHat/tree/feature#contributions][Contributing]]
+  - [[https://github.com/knjk04/SortingHat/tree/feature#contributing][Contributing]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#acknowledgements][Acknowledgements]]
 
 * What is Sorting hat?
@@ -16,6 +16,7 @@
 * Modifying the questions/answers
   Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]]
 
+  #+BEGIN_SRC
   Format:
   Line 1: [question]
   Line 2: [option 1]
@@ -26,6 +27,7 @@
   Line 7: [house that corresponds to option 2 (note: case insensitive)]
   Line 8: [house that corresponds to option 3 (note: case insensitive)]
   Line 9: [house that corresponds to option 4 (note: case insensitive)]
+  #+END_SRC
 
   Please follow this pattern for subsequent questions. 
   
@@ -55,7 +57,7 @@
     working on the same thing
 
 * Acknowledgements
-  - I don't own any of the Harry Potter rights, so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.
+  - The owner of this repo  don't own any of the Harry Potter rights, so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.
 
   - All questions are taken from Pottermore
 

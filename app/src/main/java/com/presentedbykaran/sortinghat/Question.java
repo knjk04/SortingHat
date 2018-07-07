@@ -18,11 +18,6 @@ public class Question {
 
     private ArrayList<String> mQuestions = new ArrayList<>();
     private ArrayList<String> mAnswers = new ArrayList<>();
-//    private String question;
-    private String option1;
-    private String option2;
-    private String option3;
-    private String option4;
 
     private House op1House;
     private House op2House;
@@ -33,13 +28,8 @@ public class Question {
 
     private final int NUM_OPTIONS = 4;
 
-//    public Question(Context context, String option1, String option2, String option3, String option4, House op1House, House op2House, House op3House, House op4House) {
     public Question(Context context, House op1House, House op2House, House op3House, House op4House) {
         mContext = context;
-//        this.option1 = option1;
-//        this.option2 = option2;
-//        this.option3 = option3;
-//        this.option4 = option4;
         this.op1House = op1House;
         this.op2House = op2House;
         this.op3House = op3House;

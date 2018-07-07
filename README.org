@@ -1,10 +1,34 @@
-* Sorting hat
+#+TOC: listings
+
+* What is Sorting hat?
   Android app that informs you of your Hogwarts house based on your responses to the questions (a quiz)
 
-  Please bear in mind that the actual app may look slightly different to the screenshots below if small UI changes are made.
-  If any major UI changes are made, the screenshots will be updated to reflect this.
+  /Please bear in mind that the actual app may look slightly different to the screenshots below if small UI changes are made./
+  /If any major UI changes are made, the screenshots will be updated to reflect this./
 
   [[file:repoMedia/allQuarterRes.png]]
+
+* Modifying the questions/answers
+  Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]]
+
+  Format:
+  Line 1: [question]
+  Line 2: [option 1]
+  Line 3: [option 2]
+  Line 4: [option 3]
+  Line 5: [option 4]
+  Line 6: [house that corresponds to option 1 (note: case insensitive)]
+  Line 7: [house that corresponds to option 2 (note: case insensitive)]
+  Line 8: [house that corresponds to option 3 (note: case insensitive)]
+  Line 9: [house that corresponds to option 4 (note: case insensitive)]
+
+  Please follow this pattern for subsequent questions. 
+  
+  Notes:
+  - There has to be 4 options currently. Hopefully, this will be changed to be flexible 
+    *This may mean that the format may change. If it does, this section will be updated accordingly*
+
+  - Line breaks are not permitted since it will be mistaken for something else (e.g. option 1 if on the second line)  
 
 * Support
   Android 4.4 KitKat and above (API 19 and later, SDK 19)
@@ -13,6 +37,14 @@
 |   | Device   | Android version | API Level |
 |---+----------+-----------------+-----------|
 | 1 | Pixel XL |               9 | 28        |
+
+  If you have tested the app on a device that is not listed above, please add your device to the table!
+
+* Contributions
+  - All contributions are very much appreciated :) 
+
+  - This README was made using Org mode with Emacs. Please respect this (use Org mode syntax) if you would like to make 
+    any changes to the README
 
 * Acknowledgements
   - I don't own any of the Harry Potter rights, so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.

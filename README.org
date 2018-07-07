@@ -1,6 +1,9 @@
 * Sorting hat
   Android app that informs you of your Hogwarts house based on your responses to the questions (a quiz)
 
+  Please bear in mind that the actual app may look slightly different to the screenshots below if small UI changes are made.
+  If any major UI changes are made, the screenshots will be updated to reflect this.
+
   [[file:repoMedia/allQuarterRes.png]]
 
 * Support

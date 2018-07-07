@@ -31,6 +31,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private int questionNum = 0; // since answers ArrayList starts from 0 -- it's probably bad that this class knows that
     private int houseNum = 0;
 
+    private final int OPTION_1 = 0;
+    private final int OPTION_2 = 1;
+    private final int OPTION_3 = 2;
+    private final int OPTION_4 = 3;
+    private final int NUM_OPTIONS = 4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,25 +65,30 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        Log.d(TAG, "onClick() currentIndexVal = " + currentIndexVal);
         switch (view.getId()) {
             case R.id.rdBtn1:
-                updateTally(arrQAndA[currentIndexVal].getHouse(0));
-//                updateTally(arrQAndA[currentIndexVal].getHouse(houseNum++));
+//                updateTally(arrQAndA[currentIndexVal].getHouse(0));
+                Log.d(TAG, "btn1 = " + NUM_OPTIONS*currentIndexVal+OPTION_1);
+                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS*currentIndexVal+OPTION_1)); // 0,4,8,12
 //                updateTally(arrQAndA[currentIndexVal].getOp1House());
                 break;
             case R.id.rdBtn2:
-                updateTally(arrQAndA[currentIndexVal].getHouse(1));
-//                updateTally(arrQAndA[currentIndexVal].getHouse(houseNum++));
+//                updateTally(arrQAndA[currentIndexVal].getHouse(1));
+                Log.d(TAG, "btn2 = " + NUM_OPTIONS*currentIndexVal+OPTION_2);
+                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS*currentIndexVal+OPTION_2)); // 1,5,9,13
 //                updateTally(arrQAndA[currentIndexVal].getOp2House());
                 break;
             case R.id.rdBtn3:
-                updateTally(arrQAndA[currentIndexVal].getHouse(2));
-//                updateTally(arrQAndA[currentIndexVal].getHouse(houseNum++));
+//                updateTally(arrQAndA[currentIndexVal].getHouse(2));
+                Log.d(TAG, "btn3 = " + NUM_OPTIONS*currentIndexVal+OPTION_3);
+                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS*currentIndexVal+OPTION_3)); // 2,6,10,14
 //                updateTally(arrQAndA[currentIndexVal].getOp3House());
                 break;
             case R.id.rdBtn4:
-                updateTally(arrQAndA[currentIndexVal].getHouse(3));
-//                updateTally(arrQAndA[currentIndexVal].getHouse(houseNum++));
+//                updateTally(arrQAndA[currentIndexVal].getHouse(3));
+                Log.d(TAG, "btn4 = " + NUM_OPTIONS*currentIndexVal+OPTION_4);
+                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS*currentIndexVal+OPTION_4)); // 3,7,11,15
 //                updateTally(arrQAndA[currentIndexVal].getOp4House());
                 break;
         }
@@ -198,6 +209,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 //                House.Slytherin, House.Ravenclaw);
     }
 
+    // There should be a better way to determine the house
+    // This could return the wrong house if two houses have the same tally?
     private String determineHouse() {
         int max = Math.max(mGryffindorTally, Math.max(mSlytherinTally, Math.max(mRavenclawTally, mHufflepuffTally)));
 

@@ -87,14 +87,24 @@ public class Question {
     }
 
     public House getHouse(int houseNum) {
+        Log.d(TAG, "In getHouse() and houseNum = " + houseNum);
+
+        for(String str : mHouses)
+            Log.d(TAG, "getHouse(): " + str);
+
+
         switch (mHouses.get(houseNum).toLowerCase()) {
             case "gryffindor":
+                Log.d(TAG, "gryffindor case and house = " + mHouses.get(houseNum).toLowerCase());
                 return House.Gryffindor;
             case "hufflepuff":
+                Log.d(TAG, "hufflepuff case and house = " + mHouses.get(houseNum).toLowerCase());
                 return House.Hufflepuff;
             case "ravenclaw":
+                Log.d(TAG, "ravenclaw case and house = " + mHouses.get(houseNum).toLowerCase());
                 return House.Ravenclaw;
             default:
+                Log.d(TAG, "default (slytherin) case and house = " + mHouses.get(houseNum).toLowerCase());
                 return House.Slytherin;
         }
     }

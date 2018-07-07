@@ -11,12 +11,12 @@
 |---+----------+-----------------+-----------|
 | 1 | Pixel XL |               9 | 28        |
 
-* Attributions
+* Acknowledgements
+  - I don't own any of the Harry Potter rights, so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.
+
   - All questions are taken from Pottermore
 
-  - I don't own any of the Harry Potter rights, so full credit to J.K. Rowling et al
-
-  - Special thanks to [[https://www.reddit.com/user/N1ffler][@N1ffler on the Pottermore sub-reddit]] for his fantastic [[https://www.reddit.com/r/Pottermore/comments/44os14/pottermorbbbbbbbbbbbbbbbbbbbbbbbbe_sorting_hat_quiz_analysis/][post]]
+  - Special thanks to [[https://www.reddit.com/user/N1ffler][@N1ffler]] for his fantastic [[https://www.reddit.com/r/Pottermore/comments/44os14/pottermorbbbbbbbbbbbbbbbbbbbbbbbbe_sorting_hat_quiz_analysis/][post on the Pottermore sub-reddit]]
 
   
 

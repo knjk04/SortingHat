@@ -1,8 +1,6 @@
 package com.presentedbykaran.sortinghat;
 
-import android.app.PendingIntent;
 import android.content.Intent;
-import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +28,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private int currentIndexVal = 0; // default value
-    private int questionNum = 0; // since answers ArrayList starts from 0
+    private int questionNum = 0; // since answers ArrayList starts from 0 -- it's probably bad that this class knows that
+    private int houseNum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,16 +61,24 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rdBtn1:
-                updateTally(arrQAndA[currentIndexVal].getOp1House());
+                updateTally(arrQAndA[currentIndexVal].getHouse(0));
+//                updateTally(arrQAndA[currentIndexVal].getHouse(houseNum++));
+//                updateTally(arrQAndA[currentIndexVal].getOp1House());
                 break;
             case R.id.rdBtn2:
-                updateTally(arrQAndA[currentIndexVal].getOp2House());
+                updateTally(arrQAndA[currentIndexVal].getHouse(1));
+//                updateTally(arrQAndA[currentIndexVal].getHouse(houseNum++));
+//                updateTally(arrQAndA[currentIndexVal].getOp2House());
                 break;
             case R.id.rdBtn3:
-                updateTally(arrQAndA[currentIndexVal].getOp3House());
+                updateTally(arrQAndA[currentIndexVal].getHouse(2));
+//                updateTally(arrQAndA[currentIndexVal].getHouse(houseNum++));
+//                updateTally(arrQAndA[currentIndexVal].getOp3House());
                 break;
             case R.id.rdBtn4:
-                updateTally(arrQAndA[currentIndexVal].getOp4House());
+                updateTally(arrQAndA[currentIndexVal].getHouse(3));
+//                updateTally(arrQAndA[currentIndexVal].getHouse(houseNum++));
+//                updateTally(arrQAndA[currentIndexVal].getOp4House());
                 break;
         }
         currentIndexVal++;
@@ -89,15 +96,23 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         switch (house) {
             case Gryffindor:
                 mGryffindorTally++;
+                toast = Toast.makeText(this, "Gryffindor score: " + mGryffindorTally, Toast.LENGTH_LONG);
+                toast.show();
                 break;
             case Ravenclaw:
                 mRavenclawTally++;
+                toast = Toast.makeText(this, "Ravenclaw score: " + mRavenclawTally, Toast.LENGTH_LONG);
+                toast.show();
                 break;
             case Hufflepuff:
                 mHufflepuffTally++;
+                toast = Toast.makeText(this, "Hufflepuff score: " + mHufflepuffTally, Toast.LENGTH_LONG);
+                toast.show();
                 break;
             case Slytherin:
                 mSlytherinTally++;
+                toast = Toast.makeText(this, "Slytherin score: " + mSlytherinTally, Toast.LENGTH_LONG);
+                toast.show();
                 break;
         }
     }
@@ -116,58 +131,71 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private void initQAndAArray() {
         int i = 0;
 
-        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Slytherin,
-                House.Ravenclaw, House.Gryffindor);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
+        arrQAndA[i++] = new Question(this);
 
 //        Log.d(TAG, "val of i after 1st q: " + i);
 
-        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
-                House.Slytherin, House.Gryffindor);
-//
+//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
+//                House.Slytherin, House.Gryffindor);
+
 //        Log.d(TAG, "val of i after 2nd q: " + i);
+
+//        arrQAndA[i++] = new Question(this, House.Gryffindor, House.Slytherin,
+//                House.Ravenclaw, House.Hufflepuff);
 //
-        arrQAndA[i++] = new Question(this, House.Gryffindor, House.Slytherin,
-                House.Ravenclaw, House.Hufflepuff);
-
 //        Log.d(TAG, "val of i after 3rd q: " + i);
-
-        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
-                House.Ravenclaw, House.Slytherin);
-
-        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
-                House.Slytherin, House.Gryffindor);
-
-        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
-                House.Gryffindor, House.Slytherin);
-
-        arrQAndA[i++] = new Question(this, House.Slytherin, House.Hufflepuff,
-                House.Ravenclaw, House.Gryffindor);
-
-        arrQAndA[i++] = new Question(this, House.Slytherin, House.Ravenclaw,
-                House.Gryffindor, House.Hufflepuff);
-
-        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
-                House.Ravenclaw, House.Slytherin);
-
-        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
-                House.Slytherin, House.Gryffindor);
-
-        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Slytherin, House.Gryffindor,
-                House.Hufflepuff);
-
-        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Gryffindor,
-                House.Hufflepuff, House.Slytherin);
-
-        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
-                House.Ravenclaw, House.Slytherin);
-
-        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Slytherin,
-                House.Gryffindor, House.Ravenclaw);
-
-        Log.d(TAG, "val of i before final q: " + i);
-
-        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
-                House.Slytherin, House.Ravenclaw);
+//
+//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
+//                House.Ravenclaw, House.Slytherin);
+//
+//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
+//                House.Slytherin, House.Gryffindor);
+//
+//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
+//                House.Gryffindor, House.Slytherin);
+//
+//        arrQAndA[i++] = new Question(this, House.Slytherin, House.Hufflepuff,
+//                House.Ravenclaw, House.Gryffindor);
+//
+//        arrQAndA[i++] = new Question(this, House.Slytherin, House.Ravenclaw,
+//                House.Gryffindor, House.Hufflepuff);
+//
+//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
+//                House.Ravenclaw, House.Slytherin);
+//
+//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
+//                House.Slytherin, House.Gryffindor);
+//
+//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Slytherin, House.Gryffindor,
+//                House.Hufflepuff);
+//
+//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Gryffindor,
+//                House.Hufflepuff, House.Slytherin);
+//
+//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
+//                House.Ravenclaw, House.Slytherin);
+//
+//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Slytherin,
+//                House.Gryffindor, House.Ravenclaw);
+//
+//        Log.d(TAG, "val of i before final q: " + i);
+//
+//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
+//                House.Slytherin, House.Ravenclaw);
     }
 
     private String determineHouse() {

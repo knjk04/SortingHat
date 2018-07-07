@@ -10,6 +10,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.stream.Stream;
+
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "QuizActivity";
@@ -34,7 +47,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        Log.d(TAG, "in QuizActivity's onCreate()");
+//        Log.d(TAG, "in QuizActivity's onCreate()");
 
         mTxtQuestion = findViewById(R.id.txtQuestion);
         rdBtn1 = findViewById(R.id.rdBtn1);
@@ -43,7 +56,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         rdBtn4 = findViewById(R.id.rdBtn4);
         radioGroup = findViewById(R.id.radioGroup);
 
-        Log.d(TAG, "before initQAndAArray");
+//        Log.d(TAG, "before initQAndAArray");
         initQAndAArray();
 
 //        for (int i = 0; i < NUM_QUESTIONS_TO_ASK; i++) {
@@ -129,10 +142,48 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private void initQAndAArray() {
         int i = 0;
 
-        Log.d(TAG, "val of i before first q: " + i);
+//        Log.d(TAG, "val of i before first q: " + i);
 
-        arrQAndA[i++] = new Question("Four boxes are placed before you. Which would you try and " +
-                "open?",
+//        File file = new File("../../../../assets/answers.txt");
+//        File path = getFilesDir();
+//
+//        File file = new File("answers.txt");
+//        try {
+//            Scanner scanner = new Scanner(file);
+//            Log.d(TAG, "Didn't fail");
+//        } catch (FileNotFoundException e) {
+//            Log.d(TAG, "Failed in initQAndAArray");
+//            e.printStackTrace();
+//        }
+
+//        String filePath = "/home/karan/Documents/FunStuff/SortingHat/app/src/main/java/com/presentedbykaran/sortinghat/answers.txt";
+
+//        try (Stream<String> stream = Files.lines(Paths.get(filePath))) {
+//            stream.forEach();
+//            Log.d(TAG, "Stream worked");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            Log.d(TAG, "Stream didn't work");
+//        }
+
+        String data = "";
+        ArrayList<String> questionList = new ArrayList<>();
+
+        InputStream inputStream = this.getResources().openRawResource(R.raw.questions);
+        BufferedReader bufferedReader = new BufferedReader((new InputStreamReader(inputStream)));
+
+        if(inputStream != null) {
+            try {
+                while((data = bufferedReader.readLine()) != null) {
+                    questionList.add(data);
+                }
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        arrQAndA[i++] = new Question(questionList.get(0),
                 "The small tortoiseshell box, embellished with gold, inside " +
                         "which some small creature seems to be squeaking.",
                 "The gleaming jet black box with a silver lock and key, " +
@@ -146,8 +197,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         "worthy.’", House.Hufflepuff, House.Slytherin, House.Ravenclaw,
                 House.Gryffindor);
 
-        Log.d(TAG, "val of i after 1st q: " + i);
-
         arrQAndA[i++] = new Question("You and two friends need to cross a bridge guarded by a " +
                 "river troll who insists on fighting one of you before he will let all of you pass. " +
                 "Do you:",
@@ -158,7 +207,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 "Volunteer to fight?", House.Ravenclaw, House.Hufflepuff, House.Slytherin,
                 House.Gryffindor);
 
-        Log.d(TAG, "val of i after 2nd q: " + i);
+//        Log.d(TAG, "val of i after 2nd q: " + i);
 
        arrQAndA[i++] = new Question("Once every century, the Flutterby bush produces flowers that adapt their scent to " +
                     "attract the unwary. If it lured you, it would smell of:",
@@ -168,7 +217,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                     "Home", House.Gryffindor, House.Slytherin, House.Ravenclaw,
                House.Hufflepuff);
 //
-        Log.d(TAG, "val of i after 3rd q: " + i);
+//        Log.d(TAG, "val of i after 3rd q: " + i);
 
        arrQAndA[i++] = new Question("One of your house mates has cheated in a Hogwarts exam " +
                "by using a Self-Spelling Quill. Now he has come top of the class in Charms, beating " +
@@ -260,7 +309,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                "street lined with ancient buildings", House.Hufflepuff, House.Slytherin,
                 House.Gryffindor, House.Ravenclaw);
 
-       Log.d(TAG, "val of i before final q: " + i);
+//       Log.d(TAG, "val of i before final q: " + i);
 
        arrQAndA[i++] = new Question("Late at night, walking alone down the street, you hear " +
                "a peculiar cry that you believe to have a magical source. Do you:",

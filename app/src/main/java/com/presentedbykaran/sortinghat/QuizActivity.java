@@ -1,6 +1,8 @@
 package com.presentedbykaran.sortinghat;
 
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -129,10 +137,26 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private void initQAndAArray() {
         int i = 0;
 
-        Log.d(TAG, "val of i before first q: " + i);
+//        Log.d(TAG, "val of i before first q: " + i);
 
-        arrQAndA[i++] = new Question("Four boxes are placed before you. Which would you try and " +
-                "open?",
+        String data = "";
+        ArrayList<String> questionsList = new ArrayList<>();
+
+        InputStream inputStream = this.getResources().openRawResource(R.raw.questions);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+        if(inputStream != null) {
+            try {
+                while ((data = bufferedReader.readLine()) != null) {
+                    questionsList.add(data);
+                }
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        arrQAndA[i++] = new Question(questionsList.get(0),
                 "The small tortoiseshell box, embellished with gold, inside " +
                         "which some small creature seems to be squeaking.",
                 "The gleaming jet black box with a silver lock and key, " +
@@ -146,7 +170,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         "worthy.’", House.Hufflepuff, House.Slytherin, House.Ravenclaw,
                 House.Gryffindor);
 
-        Log.d(TAG, "val of i after 1st q: " + i);
+//        Log.d(TAG, "val of i after 1st q: " + i);
 
         arrQAndA[i++] = new Question("You and two friends need to cross a bridge guarded by a " +
                 "river troll who insists on fighting one of you before he will let all of you pass. " +

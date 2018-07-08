@@ -31,12 +31,15 @@
   #+END_SRC
 
   - Please follow this pattern for subsequent questions. 
+
   
   Notes:
   - There has to be 4 options currently. Hopefully, this will be changed to be flexible.
     - *This may mean that the format may change. If it does, this section will be updated accordingly*
 
+
   - Line breaks are not permitted since it will be mistaken for something else (e.g. answer 1 if on the second line)  
+
 
   - Questions and answers (houses, too, but they're short, anyway) can only be on one line. If you have a a very long question
     and decide to break it up over more than one line, the second line will be regarded as answer 1 and the third as answer 2 and so on
@@ -51,6 +54,9 @@
 
   - If you would like to work on a new feature, we kindly request that you let us know, so that someone else doesn't spend time
     working on the same thing
+
+    Branches:
+    - The master branch is a protected branch, so you are unable to push to this directly. Please make your own branch and then submit a PR
 
 * Support
   Android 4.4 KitKat and above (API 19 and later, SDK 19)

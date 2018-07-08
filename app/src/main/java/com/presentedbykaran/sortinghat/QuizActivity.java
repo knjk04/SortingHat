@@ -10,6 +10,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.stream.Stream;
+
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "QuizActivity";
@@ -26,7 +39,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private int mHufflepuffTally = 0;
     private int mSlytherinTally = 0;
 
-
     private int currentIndexVal = 0; // default value
     private int questionNum = 0; // since answers ArrayList starts from 0 -- it's probably bad that this class knows that
     private int houseNum = 0;
@@ -42,7 +54,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        Log.d(TAG, "in QuizActivity's onCreate()");
+//        Log.d(TAG, "in QuizActivity's onCreate()");
 
         mTxtQuestion = findViewById(R.id.txtQuestion);
         rdBtn1 = findViewById(R.id.rdBtn1);
@@ -51,7 +63,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         rdBtn4 = findViewById(R.id.rdBtn4);
         radioGroup = findViewById(R.id.radioGroup);
 
-        Log.d(TAG, "before initQAndAArray");
+//        Log.d(TAG, "before initQAndAArray");
         initQAndAArray();
 
         Log.d(TAG, "Before invoking nextQuestion()");
@@ -157,56 +169,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         arrQAndA[i++] = new Question(this);
         arrQAndA[i++] = new Question(this);
         arrQAndA[i++] = new Question(this);
-
-//        Log.d(TAG, "val of i after 1st q: " + i);
-
-//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
-//                House.Slytherin, House.Gryffindor);
-
-//        Log.d(TAG, "val of i after 2nd q: " + i);
-
-//        arrQAndA[i++] = new Question(this, House.Gryffindor, House.Slytherin,
-//                House.Ravenclaw, House.Hufflepuff);
-//
-//        Log.d(TAG, "val of i after 3rd q: " + i);
-//
-//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
-//                House.Ravenclaw, House.Slytherin);
-//
-//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
-//                House.Slytherin, House.Gryffindor);
-//
-//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
-//                House.Gryffindor, House.Slytherin);
-//
-//        arrQAndA[i++] = new Question(this, House.Slytherin, House.Hufflepuff,
-//                House.Ravenclaw, House.Gryffindor);
-//
-//        arrQAndA[i++] = new Question(this, House.Slytherin, House.Ravenclaw,
-//                House.Gryffindor, House.Hufflepuff);
-//
-//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
-//                House.Ravenclaw, House.Slytherin);
-//
-//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Hufflepuff,
-//                House.Slytherin, House.Gryffindor);
-//
-//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Slytherin, House.Gryffindor,
-//                House.Hufflepuff);
-//
-//        arrQAndA[i++] = new Question(this, House.Ravenclaw, House.Gryffindor,
-//                House.Hufflepuff, House.Slytherin);
-//
-//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
-//                House.Ravenclaw, House.Slytherin);
-//
-//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Slytherin,
-//                House.Gryffindor, House.Ravenclaw);
-//
-//        Log.d(TAG, "val of i before final q: " + i);
-//
-//        arrQAndA[i++] = new Question(this, House.Hufflepuff, House.Gryffindor,
-//                House.Slytherin, House.Ravenclaw);
     }
 
     // There should be a better way to determine the house

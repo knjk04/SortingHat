@@ -2,6 +2,7 @@
 * Table of contents
   - [[https://github.com/knjk04/SortingHat/tree/feature#what-is-sorting-hat][Intro: What is Sorting Hat?]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#modifying-the-questionsanswers][Modifying the questions/answers]]
+    - [[https://github.com/knjk04/SortingHat/tree/feature#branches][Branches]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#contributing][Contributing]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#support][Support]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#acknowledgements][Acknowledgements]]

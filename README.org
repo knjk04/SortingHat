@@ -1,5 +1,6 @@
 * Table of contents
   - [[https://github.com/knjk04/SortingHat/tree/feature#what-is-sorting-hat][Intro: What is Sorting Hat?]]
+  - [[https://github.com/knjk04/SortingHat#installation][Installation]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#modifying-the-questionsanswers][Modifying the questions/answers]]
     - [[https://github.com/knjk04/SortingHat/tree/feature#branches][Branches]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#contributing][Contributing]]
@@ -17,10 +18,13 @@
 * Installation
   Below are 2 ways you can get the app up and running on your Android phone (untested with Android tablets, but it may work fine)
 
-  1. APK is available. Please see the release section and unzip the zipped folder, which contains the APK. Unfortunately, GitHub does not permit
-    APKs to be uploaded as a release (but do permit zipped folders)
+  1. APK is available -- please see the release section and unzip the zipped folder, which contains the APK. Unfortunately, GitHub does not permit
+     APKs to be uploaded as a release (but do permit zipped folders)
     - Unzip the folder
     - Install the APK on your Android phone (you may need to first enable unknown sources/install unknown apps)
+      
+  OR...
+
 
   2. Download the source code files and build the project using Android Studio
 

@@ -55,6 +55,7 @@
   - If you would like to work on a new feature, we kindly request that you let us know, so that someone else doesn't spend time
     working on the same thing
 
+
     Branches:
     - The master branch is a protected branch, so you are unable to push to this directly. Please make your own branch and then submit a PR
 

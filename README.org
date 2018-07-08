@@ -56,7 +56,7 @@
     working on the same thing
 
 
-    Branches:
+**    Branches
     - The master branch is a protected branch, so you are unable to push to this directly. Please make your own branch and then submit a PR
 
 * Support

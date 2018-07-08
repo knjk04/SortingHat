@@ -1,8 +1,9 @@
+
 * Table of contents
   - [[https://github.com/knjk04/SortingHat/tree/feature#what-is-sorting-hat][Intro: What is Sorting Hat?]]
-  - [[https://github.com/knjk04/SortingHat/tree/feature#modifying-the-questionsanswers][Making your own changes]]
-  - [[https://github.com/knjk04/SortingHat/tree/feature#support][Support]]
+  - [[https://github.com/knjk04/SortingHat/tree/feature#modifying-the-questionsanswers][Modifying the questions/answers]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#contributing][Contributing]]
+  - [[https://github.com/knjk04/SortingHat/tree/feature#support][Support]]
   - [[https://github.com/knjk04/SortingHat/tree/feature#acknowledgements][Acknowledgements]]
 
 * What is Sorting hat?
@@ -14,7 +15,7 @@
   [[file:repoMedia/allQuarterRes.png]]
 
 * Modifying the questions/answers
-  - Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]]
+  - Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]] (click on the link to see the absolute file path)
 
   Format:
   #+BEGIN_SRC
@@ -38,18 +39,8 @@
 
   - Line breaks are not permitted since it will be mistaken for something else (e.g. option 1 if on the second line)  
 
-* Support
-  Android 4.4 KitKat and above (API 19 and later, SDK 19)
-  
-  #+CAPTION: Tested devices
-|   | Device   | Android version | API Level |
-|---+----------+-----------------+-----------|
-| 1 | Pixel XL |               9 | 28        |
-
-  If you have tested the app on a device that is not listed above, please add your device to the table!
-
 * Contributing
-  - ALL contributions are very much appreciated :) 
+  - All contributions are very much appreciated :) 
 
 
   - This README was made using Org mode with Emacs. Please respect this (use Org mode syntax) if you would like to make 
@@ -58,6 +49,18 @@
 
   - If you would like to work on a new feature, we kindly request that you let us know, so that someone else doesn't spend time
     working on the same thing
+
+* Support
+  Android 4.4 KitKat and above (API 19 and later, SDK 19)
+  
+  #+CAPTION: Tested devices
+|   | Device      | Android version | API Level |
+|---+-------------+-----------------+-----------|
+| 1 | Pixel XL    |               9 |        28 |
+| 2 | OnePlus One |           5.0.2 |        21 |
+
+
+  If you have tested the app on a device (physical device, not on a simulator) that is not listed above, please add the device to the table!
 
 * Acknowledgements
   - The owner of this repo  don't own any of the Harry Potter rights, so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.
@@ -68,5 +71,5 @@
 
   - Special thanks to [[https://www.reddit.com/user/N1ffler][@N1ffler]] for his fantastic [[https://www.reddit.com/r/Pottermore/comments/44os14/pottermore_sorting_hat_quiz_analysis/][post on the Pottermore sub-reddit]]
 
-  
 
+  - Special thanks to [[https://openclipart.org/user-detail/mairor][@mairor on openclipart.org]] for the [[https://openclipart.org/detail/170276/wizard-hat][wizard hat icon]] that they made (using it for the app icon)

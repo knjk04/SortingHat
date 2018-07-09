@@ -8,15 +8,19 @@
   - [[https://github.com/knjk04/SortingHat/tree/feature#acknowledgements][Acknowledgements]]
 
 * What is Sorting hat?
-  Android app that informs you of your Hogwarts house based on your responses to the questions (a quiz)
+  Android app that informs you of your Hogwarts house based on your responses to
+  the questions (a quiz)
 
-  /Please bear in mind that the actual app may look slightly different to the screenshots below if small UI changes are made./
-  /If any major UI changes are made, the screenshots will be updated to reflect this./
+  /Please bear in mind that the actual app may look slightly different to the
+  screenshots below if small UI changes are made./
+  /If any major UI changes are made, the screenshots will be updated to reflect
+  this./
 
   [[file:repoMedia/allQuarterRes.png]]
 
 * Modifying the questions/answers
-  - Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]] (click on the link to see the absolute file path)
+  1. Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]] (click on the
+     link to see the absolute file path)
 
   Format:
   #+BEGIN_SRC
@@ -33,32 +37,45 @@
 
   - Please follow this pattern for subsequent questions. 
 
+  2. Change the number of questions to match the number of questions you want to 
+     ask in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/java/com/presentedbykaran/sortinghat/QuizActivity.java][QuizActivity.java]]
+     #+BEGIN_SRC java
+     private final int NUM_QUESTIONS_TO_ASK = 15;
+     #+END_SRC
   
   Notes:
-  - There has to be 4 options currently. Hopefully, this will be changed to be flexible.
-    - *This may mean that the format may change. If it does, this section will be updated accordingly*
+  - There has to be 4 options currently. Hopefully, this will be changed to be
+    flexible.
+    - *This may mean that the format may change. If it does, this section will
+      be updated accordingly*
 
 
-  - Line breaks are not permitted since it will be mistaken for something else (e.g. answer 1 if on the second line)  
+  - Line breaks are not permitted since it will be mistaken for something else
+    (e.g. answer 1 if on the second line)  
 
 
-  - Questions and answers (houses, too, but they're short, anyway) can only be on one line. If you have a a very long question
-    and decide to break it up over more than one line, the second line will be regarded as answer 1 and the third as answer 2 and so on
+  - Questions and answers (houses, too, but they're short, anyway) can only be 
+    on one line. If you have a a very long question and decide to break it up
+    over more than one line, the second line will be regarded as answer 1 and
+    the third as answer 2 and so on
 
 * Contributing
   - All contributions are very much appreciated :) 
 
+**    README
+  - This README was made using Org mode with Emacs. Please respect this (use Org
+    mode syntax) if you would like to make any changes to the README
 
-  - This README was made using Org mode with Emacs. Please respect this (use Org mode syntax) if you would like to make 
-    any changes to the README
+  - Kindly abide by the 80 character limit convention
 
 
-  - If you would like to work on a new feature, we kindly request that you let us know, so that someone else doesn't spend time
-    working on the same thing
+  - If you would like to work on a new feature, we kindly request that you let
+    us know, so that someone else doesn't spend time working on the same thing
 
 
 **    Branches
-    - The master branch is a protected branch, so you are unable to push to this directly. Please make your own branch and then submit a PR
+    - The master branch is a protected branch, so you are unable to push to this 
+      directly. Please make your own branch and then submit a PR
 
 * Support
   Android 4.4 KitKat and above (API 19 and later, SDK 19)
@@ -70,10 +87,12 @@
 | 2 | OnePlus One |           5.0.2 |        21 |
 
 
-  If you have tested the app on a device (physical device, not on a simulator) that is not listed above, please add the device to the table!
+  If you have tested the app on a device (physical device, not on a simulator) 
+  that is not listed above, please add the device to the table!
 
 * Acknowledgements
-  - The owner of this repo  don't own any of the Harry Potter rights, so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.
+  - The owner of this repo don't own any of the Harry Potter rights, so full
+    credit to J.K. Rowling (and her Wizarding world) and Warner Bros.
 
 
   - All questions are taken from Pottermore
@@ -82,4 +101,5 @@
   - Special thanks to [[https://www.reddit.com/user/N1ffler][@N1ffler]] for his fantastic [[https://www.reddit.com/r/Pottermore/comments/44os14/pottermore_sorting_hat_quiz_analysis/][post on the Pottermore sub-reddit]]
 
 
-  - Special thanks to [[https://openclipart.org/user-detail/mairor][@mairor on openclipart.org]] for the [[https://openclipart.org/detail/170276/wizard-hat][wizard hat icon]] that they made (using it for the app icon)
+  - Special thanks to [[https://openclipart.org/user-detail/mairor][@mairor on openclipart.org]] for the [[https://openclipart.org/detail/170276/wizard-hat][wizard hat icon]] that 
+    they made (using it for the app icon)

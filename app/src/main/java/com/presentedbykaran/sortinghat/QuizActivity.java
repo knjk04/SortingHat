@@ -95,27 +95,27 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void updateTally(House house) {
-        Toast toast;
+//        Toast toast;
         switch (house) {
             case Gryffindor:
                 mGryffindorTally++;
-                toast = Toast.makeText(this, "Gryffindor score: " + mGryffindorTally, Toast.LENGTH_LONG);
-                toast.show();
+//                toast = Toast.makeText(this, "Gryffindor score: " + mGryffindorTally, Toast.LENGTH_LONG);
+//                toast.show();
                 break;
             case Ravenclaw:
                 mRavenclawTally++;
-                toast = Toast.makeText(this, "Ravenclaw score: " + mRavenclawTally, Toast.LENGTH_LONG);
-                toast.show();
+//                toast = Toast.makeText(this, "Ravenclaw score: " + mRavenclawTally, Toast.LENGTH_LONG);
+//                toast.show();
                 break;
             case Hufflepuff:
                 mHufflepuffTally++;
-                toast = Toast.makeText(this, "Hufflepuff score: " + mHufflepuffTally, Toast.LENGTH_LONG);
-                toast.show();
+//                toast = Toast.makeText(this, "Hufflepuff score: " + mHufflepuffTally, Toast.LENGTH_LONG);
+//                toast.show();
                 break;
             case Slytherin:
                 mSlytherinTally++;
-                toast = Toast.makeText(this, "Slytherin score: " + mSlytherinTally, Toast.LENGTH_LONG);
-                toast.show();
+//                toast = Toast.makeText(this, "Slytherin score: " + mSlytherinTally, Toast.LENGTH_LONG);
+//                toast.show();
                 break;
         }
     }

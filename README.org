@@ -19,7 +19,7 @@
   [[file:repoMedia/allQuarterRes.png]]
 
 * Modifying the questions/answers
-  1. Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]] (click on the
+  -  Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]] (click on the
      link to see the absolute file path)
 
   Format:
@@ -37,7 +37,7 @@
 
   Please follow this pattern for subsequent questions. 
 
-  2. Change the number of questions to match the number of questions you want to 
+  -  Change the number of questions to match the number of questions you want to
      ask in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/java/com/presentedbykaran/sortinghat/QuizActivity.java][QuizActivity.java]]
      #+BEGIN_SRC java
      private final int NUM_QUESTIONS_TO_ASK = 15;

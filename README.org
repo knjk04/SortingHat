@@ -35,7 +35,7 @@
   Line 9: [house that corresponds to answer 4 (note: case insensitive)]
   #+END_SRC
 
-  - Please follow this pattern for subsequent questions. 
+  Please follow this pattern for subsequent questions. 
 
   2. Change the number of questions to match the number of questions you want to 
      ask in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/java/com/presentedbykaran/sortinghat/QuizActivity.java][QuizActivity.java]]
@@ -65,6 +65,7 @@
 **    README
   - This README was made using Org mode with Emacs. Please respect this (use Org
     mode syntax) if you would like to make any changes to the README
+
 
   - Kindly abide by the 80 character limit convention
 

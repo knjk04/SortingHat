@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         btnBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "In onClick()");
                stopMusic();
                startQuiz();
             }
@@ -49,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void stopMusic() {
-        if(mBackgroundMusic.isPlaying()) mBackgroundMusic.stop();
+        if(mBackgroundMusic.isPlaying()) {
+            mBackgroundMusic.stop();
+            Log.d(TAG, "Music was playing");
+        }
     }
 
     private void startQuiz() {

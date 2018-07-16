@@ -93,17 +93,14 @@
       directly. Please make your own branch and then submit a PR
 
 * Support
-  V2: 
-  - Android 6.0 Marshmallow and above (API 23 and later)
-
   V1:
   - Android 4.4 KitKat and above (API 19 and later)
   
   #+CAPTION: Tested devices
 |   | Device      | Android version | API Level | Version |
 |---+-------------+-----------------+-----------+---------|
-| 1 | Pixel XL    |               9 | 28 +--    | V2, V1  |
-| 2 | OnePlus One |           5.0.2 | 21 +--    | V1      |
+| 1 | Pixel XL    |               9 | 28        | V1      |
+| 2 | OnePlus One |           5.0.2 | 21        | V1      |
 
 
 

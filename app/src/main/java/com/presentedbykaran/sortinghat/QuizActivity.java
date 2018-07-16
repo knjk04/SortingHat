@@ -3,25 +3,10 @@ package com.presentedbykaran.sortinghat;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -47,10 +32,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private final int OPTION_4 = 3;
     private final int NUM_OPTIONS = 4;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
 
         mTxtQuestion = findViewById(R.id.txtQuestion);
         rdBtn1 = findViewById(R.id.rdBtn1);
@@ -67,6 +54,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         rdBtn3.setOnClickListener(this);
         rdBtn4.setOnClickListener(this);
     }
+
 
     @Override
     public void onClick(View view) {
@@ -94,6 +82,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         radioGroup.clearCheck();
     }
 
+    // Toast messages are kept as commented code to make it easy to quickly toggle them when debugging
     private void updateTally(House house) {
 //        Toast toast;
         switch (house) {

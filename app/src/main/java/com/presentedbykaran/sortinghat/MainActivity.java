@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void stopMusic() {
         if(mBackgroundMusic.isPlaying()) {
             mBackgroundMusic.stop();
-            Log.d(TAG, "Music was playing");
+//            Log.d(TAG, "Music was playing");
         }
     }
 

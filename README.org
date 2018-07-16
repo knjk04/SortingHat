@@ -22,15 +22,11 @@
 * Installation
   Below are 2 ways you can get the app up and running on your Android phone (untested with Android tablets, but it may work fine)
 
-  1. APK is available -- please see the release section and unzip the zipped folder, which contains the APK. Unfortunately, GitHub does not permit
-     APKs to be uploaded as a release (but do permit zipped folders)
-    - Unzip the folder
-    - Install the APK on your Android phone (you may need to first enable unknown sources/install unknown apps)
-      
-  OR...
+  Either...
+  - Download the APK -- please see the release section for more information. Download links are available in the [[https://github.com/knjk04/SortingHat/tree/master/apk][apk]] folder
 
 
-  2. Download the source code files and build the project using Android Studio
+  - Download the source code files and build the project using Android Studio
 
 * Modifying the questions/answers
   -  Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]] (click on the

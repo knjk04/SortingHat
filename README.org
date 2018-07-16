@@ -93,13 +93,18 @@
       directly. Please make your own branch and then submit a PR
 
 * Support
-  Android 4.4 KitKat and above (API 19 and later, SDK 19)
+  V2: 
+  - Android 6.0 Marshmallow and above (API 23 and later)
+
+  V1:
+  - Android 4.4 KitKat and above (API 19 and later)
   
   #+CAPTION: Tested devices
-|   | Device      | Android version | API Level |
-|---+-------------+-----------------+-----------|
-| 1 | Pixel XL    |               9 |        28 |
-| 2 | OnePlus One |           5.0.2 |        21 |
+|   | Device      | Android version | API Level | Version |
+|---+-------------+-----------------+-----------+---------|
+| 1 | Pixel XL    |               9 | 28 +--    | V2, V1  |
+| 2 | OnePlus One |           5.0.2 | 21 +--    | V1      |
+|   |             |                 |           |         |
 
 
   If you have tested the app on a device (physical device, not on a simulator) 
@@ -118,3 +123,6 @@
 
   - Special thanks to [[https://openclipart.org/user-detail/mairor][@mairor on openclipart.org]] for the [[https://openclipart.org/detail/170276/wizard-hat][wizard hat icon]] that 
     they made (using it for the app icon)
+
+
+  - Royalty free music from [[http://bensound.com][BenSound]]

@@ -1,7 +1,7 @@
 package com.presentedbykaran.sortinghat;
 
 import android.content.Intent;
-import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,21 +12,44 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnBegin;
     public static final String TAG = "MainActivity";
+    private MediaPlayer mBackgroundMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Log.d(TAG, "in main activity's onCreate()");
+        createBackgroundMusic();
 
         btnBegin = findViewById(R.id.btnBegin);
         btnBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               startQuiz() ;
+               stopMusic();
+               startQuiz();
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopMusic();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        createBackgroundMusic();
+    }
+
+    private void createBackgroundMusic() {
+        mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_slowmotion);
+        mBackgroundMusic.start();
+    }
+
+    private void stopMusic() {
+        if(mBackgroundMusic.isPlaying()) mBackgroundMusic.stop();
     }
 
     private void startQuiz() {

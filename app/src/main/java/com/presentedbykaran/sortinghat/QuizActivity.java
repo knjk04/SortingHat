@@ -29,7 +29,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private int mSlytherinTally = 0;
 
     private int currentIndexVal = 0; // default value
-    private int questionNum = 0; // since answers ArrayList starts from 0 -- it's probably bad that this class knows that
+    private int questionNum = 0; // since answers ArrayList starts from 0
 
     private final int OPTION_1 = 0;
     private final int OPTION_2 = 1;
@@ -37,8 +37,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private final int OPTION_4 = 3;
     private final int NUM_OPTIONS = 4;
 
-    MediaPlayer mBackgroundMusic = null;
-    boolean isMediaPlayerNull = false;
+//    MediaPlayer mBackgroundMusic = null;
+    MusicController mMusicController;
 
 
     @Override
@@ -46,7 +46,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        if (mBackgroundMusic == null) createBackgroundMusic();
+//        if (mBackgroundMusic == null) createBackgroundMusic();
+        if (mMusicController == null) createBackgroundMusic();
 
         mTxtQuestion = findViewById(R.id.txtQuestion);
         rdBtn1 = findViewById(R.id.rdBtn1);
@@ -74,50 +75,61 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        if (mBackgroundMusic == null) createBackgroundMusic();
+//        if (mBackgroundMusic == null) createBackgroundMusic();
+        if (mMusicController == null) createBackgroundMusic();
     }
 
     private void createBackgroundMusic() {
-        Log.d(TAG, "In createBackgroundMusic() in QuizActivity");
-        mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_memories);
-        mBackgroundMusic.start();
+//        Log.d(TAG, "In createBackgroundMusic() in QuizActivity");
+//        mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_memories);
+//        mBackgroundMusic.start();
+
+        mMusicController = new MusicController(this);
+        mMusicController.setFile(R.raw.bensound_memories);
+        mMusicController.start();
     }
 
     private void stopMusic() {
 
-        if (mBackgroundMusic != null) {
+//        if (mBackgroundMusic != null) {
 //            mBackgroundMusic.reset();
 //
 
-            if (mBackgroundMusic.isPlaying()) {
+//            if (mBackgroundMusic.isPlaying()) {
 //                Log.d(TAG, "Music was playing - QuizActivity");
-                mBackgroundMusic.stop();
-            }
+//                mBackgroundMusic.stop();
+//            }
 
-            if (!mBackgroundMusic.isPlaying()) Log.d(TAG, "Music stopped - QuizActivity");
+//            if (!mBackgroundMusic.isPlaying()) Log.d(TAG, "Music stopped - QuizActivity");
 
-            mBackgroundMusic.release();
-            mBackgroundMusic = null;
+//            mBackgroundMusic.release();
+//            mBackgroundMusic = null;
 
-            if (mBackgroundMusic == null)
-                Log.d(TAG, "Successfully set mBackgroundMusic to null in QuizActivity");
-        }
+//            if (mBackgroundMusic == null)
+//                Log.d(TAG, "Successfully set mBackgroundMusic to null in QuizActivity");
+//        }
+
+        mMusicController.stop();
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rdBtn1:
-                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS * currentIndexVal + OPTION_1)); // 0,4,8,12
+                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS *
+                        currentIndexVal + OPTION_1)); // 0,4,8,12
                 break;
             case R.id.rdBtn2:
-                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS * currentIndexVal + OPTION_2)); // 1,5,9,13
+                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS *
+                        currentIndexVal + OPTION_2)); // 1,5,9,13
                 break;
             case R.id.rdBtn3:
-                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS * currentIndexVal + OPTION_3)); // 2,6,10,14
+                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS *
+                        currentIndexVal + OPTION_3)); // 2,6,10,14
                 break;
             case R.id.rdBtn4:
-                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS * currentIndexVal + OPTION_4)); // 3,7,11,15
+                updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS *
+                        currentIndexVal + OPTION_4)); // 3,7,11,15
                 break;
         }
         currentIndexVal++;
@@ -176,7 +188,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     // There should be a better way to determine the house
     // This could return the wrong house if two houses have the same tally?
     private String determineHouse() {
-        int max = Math.max(mGryffindorTally, Math.max(mSlytherinTally, Math.max(mRavenclawTally, mHufflepuffTally)));
+        int max = Math.max(mGryffindorTally, Math.max(mSlytherinTally, Math.max(mRavenclawTally,
+                mHufflepuffTally)));
 
         if (max == mGryffindorTally) {
             return "Gryffindor!";

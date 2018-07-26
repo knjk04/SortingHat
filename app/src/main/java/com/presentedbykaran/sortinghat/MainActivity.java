@@ -12,7 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnBegin;
     public static final String TAG = MainActivity.class.getSimpleName();
-    private MediaPlayer mBackgroundMusic;
+//    private MediaPlayer mBackgroundMusic;
+    private MusicController mMusicController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,22 +46,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createBackgroundMusic() {
-        mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_slowmotion);
-        mBackgroundMusic.start();
+//        mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_slowmotion);
+//        mBackgroundMusic.start();
+        mMusicController = new MusicController(this);
+        mMusicController.setFile(R.raw.bensound_slowmotion);
+        mMusicController.start();
     }
 
     private void stopMusic() {
-            if(mBackgroundMusic != null) {
-                if(mBackgroundMusic.isPlaying()) mBackgroundMusic.stop();
-                mBackgroundMusic.release();
-                mBackgroundMusic = null;
-            }
+//            if(mBackgroundMusic != null) {
+//                if(mBackgroundMusic.isPlaying()) mBackgroundMusic.stop();
+//                mBackgroundMusic.release();
+//                mBackgroundMusic = null;
+//            }
 
 //            Log.d(TAG, "Music was playing (MainActivity)");
-
+        mMusicController.stop();
     }
 
     private void startQuiz() {
+        stopMusic();
         Intent intent = new Intent(this, QuizActivity.class);
         startActivity(intent);
     }

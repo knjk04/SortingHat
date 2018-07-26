@@ -1,8 +1,6 @@
 package com.presentedbykaran.sortinghat;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,9 +13,9 @@ public class ResultsActivity extends AppCompatActivity {
     private TextView txtHouse;
     private Button btnShare;
 
-    MediaPlayer mBackgroundMusic;
+    private MusicController mMusicController;
     ImageView imageView;
-    private String house;
+    private String mHouse;
 
     private final String GRYFFINDOR = "gryffindor!";
     private final String RAVENCLAW  = "ravenclaw!";
@@ -26,7 +24,6 @@ public class ResultsActivity extends AppCompatActivity {
 
     public static final String TAG = ResultsActivity.class.getSimpleName();
 
-    private int mFile;
     private int mTime = 0;
 
     @Override
@@ -36,11 +33,11 @@ public class ResultsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        house = intent.getStringExtra("house");
+        mHouse = intent.getStringExtra("house");
         txtHouse = findViewById(R.id.hogwartsHouse);
         imageView = findViewById(R.id.houseEmblem);
         setEmblem();
-        txtHouse.setText(house);
+        txtHouse.setText(mHouse);
 
         btnShare = findViewById(R.id.btnShare);
         btnShare.setOnClickListener(new View.OnClickListener() {
@@ -60,11 +57,11 @@ public class ResultsActivity extends AppCompatActivity {
 
     private void setEmblem() {
         Log.d(TAG, "In setEmblem()");
-        switch(house.toLowerCase()) {
+        switch(mHouse.toLowerCase()) {
             case GRYFFINDOR:
                 imageView.setImageResource(R.drawable.gryffindor_crest_transparent);
 //                createBackgroundMusic(R.raw.hana);
-                mFile = R.raw.hana;
+//                mFile = R.raw.hana;
                 createBackgroundMusic();
 //                mBackgroundMusic = MediaPlayer.create(this, R.raw.hana);
                 break;
@@ -72,34 +69,40 @@ public class ResultsActivity extends AppCompatActivity {
                 imageView.setImageResource(R.drawable.hufflepuff_crest_transparent);
 //                createBackgroundMusic(R.raw.denali);
                 createBackgroundMusic();
-                mFile = R.raw.denali;
+//                mFile = R.raw.denali;
 //                mBackgroundMusic = MediaPlayer.create(this, R.raw.denali);
                 break;
             case RAVENCLAW:
                 imageView.setImageResource(R.drawable.ravenclaw_crest_transparent);
 //                createBackgroundMusic(R.raw.banshee);
-                mFile = R.raw.banshee;
+//                mFile = R.raw.banshee;
                 createBackgroundMusic();
 //                mBackgroundMusic = MediaPlayer.create(this, R.raw.banshee);
                 break;
             case SLYTHERIN:
                 imageView.setImageResource(R.drawable.slytherin_crest_transparent);
-                mFile = R.raw.castor;
+//                mFile = R.raw.castor;
                 createBackgroundMusic();
 //                mBackgroundMusic = MediaPlayer.create(this, R.raw.castor);
         }
-        mBackgroundMusic.start();
+//        mBackgroundMusic.start();
+        mMusicController.start();
 
-        if (mBackgroundMusic.isPlaying()) {
-            Log.d(TAG, "Music is playing - setEmblem()");
-        }
+//        if (mBackgroundMusic.isPlaying()) {
+//            Log.d(TAG, "Music is playing - setEmblem()");
+//        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (mBackgroundMusic != null && mBackgroundMusic.isPlaying()) {
-            mTime = mBackgroundMusic.getCurrentPosition();
+//        if (mBackgroundMusic != null && mBackgroundMusic.isPlaying()) {
+//            mTime = mBackgroundMusic.getCurrentPosition();
+//            stopMusic();
+//        }
+
+        if (mMusicController != null && mMusicController.isPlaying()) {
+            mTime = mMusicController.getCurrentPosition();
             stopMusic();
         }
     }
@@ -107,16 +110,46 @@ public class ResultsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
        super.onResume();
-       mBackgroundMusic.start();
-       mBackgroundMusic.seekTo(mTime);
+//       mBackgroundMusic.start();
+//       mBackgroundMusic.seekTo(mTime);
+
+        mMusicController.start();
 //       createBackgroundMusic();
     }
 
     private void createBackgroundMusic() {
-        mBackgroundMusic = MediaPlayer.create(this, mFile);
+//        mBackgroundMusic = MediaPlayer.create(this, mFile);
+        mMusicController = new MusicController(this);
+        strToHouse();
+        mMusicController.start();
     }
 
     private void stopMusic() {
-        if(mBackgroundMusic.isPlaying()) mBackgroundMusic.stop();
+//        if(mBackgroundMusic.isPlaying()) mBackgroundMusic.stop();
+        if(mMusicController.isPlaying()) mMusicController.stop();
+    }
+
+    private void strToHouse() {
+        String house = mHouse.toLowerCase();
+        Log.d(TAG, "house in strToHouse: " + txtHouse.getText());
+
+        switch(house) {
+            case "gryffindor!":
+                Log.d(TAG, "in gryffindor case in strToHouse");
+                mMusicController.setFileHouse(House.Gryffindor);
+                break;
+            case "hufflepuff!":
+                Log.d(TAG, "in hufflepuff case in strToHouse");
+                mMusicController.setFileHouse(House.Hufflepuff);
+                break;
+            case "ravenclaw!":
+                Log.d(TAG, "in ravenclaw case in strToHouse");
+                mMusicController.setFileHouse(House.Ravenclaw);
+                break;
+            case "slytherin!":
+                Log.d(TAG, "in slytherin case in strToHouse");
+                mMusicController.setFileHouse(House.Slytherin);
+                break;
+        }
     }
 }

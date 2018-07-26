@@ -1,16 +1,21 @@
 package com.presentedbykaran.sortinghat;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String TAG = "QuizActivity";
+    public static final String TAG = QuizActivity.class.getSimpleName();
     private TextView mTxtQuestion;
     private RadioButton rdBtn1, rdBtn2, rdBtn3, rdBtn4;
     private RadioGroup radioGroup;
@@ -32,12 +37,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private final int OPTION_4 = 3;
     private final int NUM_OPTIONS = 4;
 
+    MediaPlayer mBackgroundMusic;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        if (mBackgroundMusic == null) createBackgroundMusic();
 
         mTxtQuestion = findViewById(R.id.txtQuestion);
         rdBtn1 = findViewById(R.id.rdBtn1);
@@ -45,6 +53,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         rdBtn3 = findViewById(R.id.rdBtn3);
         rdBtn4 = findViewById(R.id.rdBtn4);
         radioGroup = findViewById(R.id.radioGroup);
+//        imageView = findViewById(R.id.houseEmblem);
 
         initQAndAArray();
         nextQuestion();
@@ -55,6 +64,43 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         rdBtn4.setOnClickListener(this);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopMusic();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        createBackgroundMusic();
+    }
+
+    private void createBackgroundMusic() {
+        mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_memories);
+        mBackgroundMusic.start();
+    }
+
+    private void stopMusic() {
+
+        if (mBackgroundMusic != null) {
+//            mBackgroundMusic.reset();
+//
+
+            if (mBackgroundMusic.isPlaying()) {
+//                Log.d(TAG, "Music was playing - QuizActivity");
+                mBackgroundMusic.stop();
+            }
+
+//            if (!mBackgroundMusic.isPlaying()) Log.d(TAG, "Music stopped - QuizActivity");
+
+            mBackgroundMusic.release();
+            mBackgroundMusic = null;
+
+//            if (mBackgroundMusic == null)
+//                Log.d(TAG, "Successfully set mBackgroundMusic to null in QuizActivity");
+        }
+    }
 
     @Override
     public void onClick(View view) {
@@ -74,6 +120,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
         currentIndexVal++;
         if (currentIndexVal == NUM_QUESTIONS_TO_ASK) {
+            stopMusic();
             Intent intent = new Intent(this, ResultsActivity.class);
             intent.putExtra("house", determineHouse());
             startActivity(intent);
@@ -129,9 +176,17 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private String determineHouse() {
         int max = Math.max(mGryffindorTally, Math.max(mSlytherinTally, Math.max(mRavenclawTally, mHufflepuffTally)));
 
-        if (max == mGryffindorTally) return "Gryffindor!";
-        else if (max == mRavenclawTally) return "Ravenclaw!";
-        else if (max == mHufflepuffTally) return "Hufflepuff!";
+        if (max == mGryffindorTally) {
+//            imageView.setImageResource(R.drawable.gryffindor_crest_transparent);
+            return "Gryffindor!";
+        } else if (max == mRavenclawTally) {
+//            imageView.setImageResource(R.drawable.ravenclaw_crest_transparent);
+            return "Ravenclaw!";
+        } else if (max == mHufflepuffTally) {
+//            imageView.setImageResource(R.drawable.hufflepuff_crest_transparent);
+            return "Hufflepuff!";
+        }
+//        imageView.setImageResource(R.drawable.slytherin_crest_transparent);
         return "Slytherin!";
     }
 }

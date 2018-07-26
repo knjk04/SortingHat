@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sorting Hat</string>
+    <string name="shareBtnText">Share</string>
 </resources>

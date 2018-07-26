@@ -11,7 +11,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button btnBegin;
-    public static final String TAG = "MainActivity";
+    public static final String TAG = MainActivity.class.getSimpleName();
     private MediaPlayer mBackgroundMusic;
 
     @Override
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         btnBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "In onClick()");
+//               Log.d(TAG, "In onClick()");
                stopMusic();
                startQuiz();
             }
@@ -50,15 +50,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void stopMusic() {
-        if(mBackgroundMusic.isPlaying()) {
-            mBackgroundMusic.stop();
-//            Log.d(TAG, "Music was playing");
-        }
+            if(mBackgroundMusic != null) {
+                if(mBackgroundMusic.isPlaying()) mBackgroundMusic.stop();
+                mBackgroundMusic.release();
+                mBackgroundMusic = null;
+            }
+
+//            Log.d(TAG, "Music was playing (MainActivity)");
+
     }
 
     private void startQuiz() {
         Intent intent = new Intent(this, QuizActivity.class);
-//        Resources resources = getResources();
         startActivity(intent);
     }
 }

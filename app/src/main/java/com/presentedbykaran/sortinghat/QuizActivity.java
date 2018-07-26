@@ -37,7 +37,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private final int OPTION_4 = 3;
     private final int NUM_OPTIONS = 4;
 
-    MediaPlayer mBackgroundMusic;
+    MediaPlayer mBackgroundMusic = null;
+    boolean isMediaPlayerNull = false;
 
 
     @Override
@@ -73,10 +74,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        createBackgroundMusic();
+        if (mBackgroundMusic == null) createBackgroundMusic();
     }
 
     private void createBackgroundMusic() {
+        Log.d(TAG, "In createBackgroundMusic() in QuizActivity");
         mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_memories);
         mBackgroundMusic.start();
     }
@@ -92,13 +94,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 mBackgroundMusic.stop();
             }
 
-//            if (!mBackgroundMusic.isPlaying()) Log.d(TAG, "Music stopped - QuizActivity");
+            if (!mBackgroundMusic.isPlaying()) Log.d(TAG, "Music stopped - QuizActivity");
 
             mBackgroundMusic.release();
             mBackgroundMusic = null;
 
-//            if (mBackgroundMusic == null)
-//                Log.d(TAG, "Successfully set mBackgroundMusic to null in QuizActivity");
+            if (mBackgroundMusic == null)
+                Log.d(TAG, "Successfully set mBackgroundMusic to null in QuizActivity");
         }
     }
 
@@ -177,16 +179,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         int max = Math.max(mGryffindorTally, Math.max(mSlytherinTally, Math.max(mRavenclawTally, mHufflepuffTally)));
 
         if (max == mGryffindorTally) {
-//            imageView.setImageResource(R.drawable.gryffindor_crest_transparent);
             return "Gryffindor!";
         } else if (max == mRavenclawTally) {
-//            imageView.setImageResource(R.drawable.ravenclaw_crest_transparent);
             return "Ravenclaw!";
         } else if (max == mHufflepuffTally) {
-//            imageView.setImageResource(R.drawable.hufflepuff_crest_transparent);
             return "Hufflepuff!";
         }
-//        imageView.setImageResource(R.drawable.slytherin_crest_transparent);
         return "Slytherin!";
     }
 }

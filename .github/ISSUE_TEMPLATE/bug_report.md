@@ -21,14 +21,14 @@ If applicable, add screenshots to help explain your problem.
 
 **Android version (please complete the following information):**
  - Device: [e.g. Pixel XL 2]
- - OS: [e.g. Android 8/Oreo]
- - (Optional) API level [e.g. 22]
+ - Android version: [e.g. Android 8/Oreo]
+ - (Optional) API level: [e.g. 22]
 
 **Additional context**
 Add any other context about the problem here.
 
 **(Optional) Where in code (if known)**
-- Branch (e.g. Feature):
-- File (e.g. QuizActivity.java):
-- Method (e.g. in determineHouse()):
-- Line number (if known):
+- Branch (if known): [e.g. feature]
+- File: [e.g. QuizActivity.java]
+- Method (if known): [e.g. determineHouse]
+- Line number (if known): 

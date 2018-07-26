@@ -1,7 +1,6 @@
 package com.presentedbykaran.sortinghat;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +11,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnBegin;
     public static final String TAG = MainActivity.class.getSimpleName();
-//    private MediaPlayer mBackgroundMusic;
     private MusicController mMusicController;
 
     @Override
@@ -26,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         btnBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//               Log.d(TAG, "In onClick()");
                stopMusic();
                startQuiz();
             }
@@ -46,21 +43,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createBackgroundMusic() {
-//        mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_slowmotion);
-//        mBackgroundMusic.start();
         mMusicController = new MusicController(this);
         mMusicController.setFile(R.raw.bensound_slowmotion);
         mMusicController.start();
     }
 
     private void stopMusic() {
-//            if(mBackgroundMusic != null) {
-//                if(mBackgroundMusic.isPlaying()) mBackgroundMusic.stop();
-//                mBackgroundMusic.release();
-//                mBackgroundMusic = null;
-//            }
-
-//            Log.d(TAG, "Music was playing (MainActivity)");
         mMusicController.stop();
     }
 

@@ -22,7 +22,6 @@ public class MusicController {
     private Context mContext;
 
     public MusicController(Context context) {
-//        mediaPlayer = MediaPlayer.create(context, mFile);
         mContext = context;
     }
 

@@ -1,17 +1,13 @@
 package com.presentedbykaran.sortinghat;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
-import java.io.IOException;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,7 +33,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private final int OPTION_4 = 3;
     private final int NUM_OPTIONS = 4;
 
-//    MediaPlayer mBackgroundMusic = null;
     MusicController mMusicController;
 
 
@@ -46,7 +41,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-//        if (mBackgroundMusic == null) createBackgroundMusic();
         if (mMusicController == null) createBackgroundMusic();
 
         mTxtQuestion = findViewById(R.id.txtQuestion);
@@ -55,7 +49,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         rdBtn3 = findViewById(R.id.rdBtn3);
         rdBtn4 = findViewById(R.id.rdBtn4);
         radioGroup = findViewById(R.id.radioGroup);
-//        imageView = findViewById(R.id.houseEmblem);
 
         initQAndAArray();
         nextQuestion();
@@ -75,40 +68,16 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-//        if (mBackgroundMusic == null) createBackgroundMusic();
         if (mMusicController == null) createBackgroundMusic();
     }
 
     private void createBackgroundMusic() {
-//        Log.d(TAG, "In createBackgroundMusic() in QuizActivity");
-//        mBackgroundMusic = MediaPlayer.create(this, R.raw.bensound_memories);
-//        mBackgroundMusic.start();
-
         mMusicController = new MusicController(this);
         mMusicController.setFile(R.raw.bensound_memories);
         mMusicController.start();
     }
 
     private void stopMusic() {
-
-//        if (mBackgroundMusic != null) {
-//            mBackgroundMusic.reset();
-//
-
-//            if (mBackgroundMusic.isPlaying()) {
-//                Log.d(TAG, "Music was playing - QuizActivity");
-//                mBackgroundMusic.stop();
-//            }
-
-//            if (!mBackgroundMusic.isPlaying()) Log.d(TAG, "Music stopped - QuizActivity");
-
-//            mBackgroundMusic.release();
-//            mBackgroundMusic = null;
-
-//            if (mBackgroundMusic == null)
-//                Log.d(TAG, "Successfully set mBackgroundMusic to null in QuizActivity");
-//        }
-
         mMusicController.stop();
     }
 

@@ -20,11 +20,9 @@ public class InstructionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_instructions);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        Log.d(TAG, "name: " + name);
+        String[] fullName = intent.getStringArrayExtra("fullName");
         txtName = findViewById(R.id.txtFullName);
-//        txtName.setText(name);
-        splitName(name);
+        splitName(fullName);
 
         button = findViewById(R.id.btnSort);
         button.setOnClickListener(new View.OnClickListener() {
@@ -36,13 +34,8 @@ public class InstructionsActivity extends AppCompatActivity {
         });
     }
 
-    // Only works if the witch/wizard's first name is one word and their second name is one word
-    // Would be better to request the first and second name separately to handle first names that
-    // are 2 or more words long
-    private void splitName(String name) {
-        String[] split = name.split(" ");
-//        for (String s : split) Log.d(TAG, "split: " + s);
-        String formattedName = split[1] + ", " + split[0];
-        txtName.setText(formattedName);
+    private void splitName(String[] fullName) {
+        String name = fullName[1] + ", " + fullName[0];
+        txtName.setText(name);
     }
 }

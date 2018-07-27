@@ -102,7 +102,7 @@
   If you have tested the app on a device (physical device, not on a simulator) 
   that is not listed above, please add the device to the table!
 
-* Acknowledgements
+* Acknowledgements & Disclaimers
   - The owner of this repo don't own any of the Harry Potter rights (copyrights,
     trademarks, etc.), so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.
 

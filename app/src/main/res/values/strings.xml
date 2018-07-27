@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Sorting Hat</string>
     <string name="shareBtnText">Spread the magic</string>
-    <string name="nameEditTextHint">Enter your full name</string>
+    <string name="fstNameEditTextHint">Enter your first name</string>
+    <string name="sndNameEditTextHint">Enter your last name</string>
 
     <string name="instructions">You will be presented with a series of questions and multiple
     choice answers. There are no right answers. Please answer the questions truthfully, so that

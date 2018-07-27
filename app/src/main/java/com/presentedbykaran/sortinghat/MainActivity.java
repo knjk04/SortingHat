@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnBegin;
     private EditText editTextFst;
+    private EditText editTextSnd;
     public static final String TAG = MainActivity.class.getSimpleName();
     private MusicController mMusicController;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         createBackgroundMusic();
 
         editTextFst = findViewById(R.id.txtFstName);
+        editTextSnd = findViewById(R.id.txtSndName);
 
         btnBegin = findViewById(R.id.btnBegin);
         btnBegin.setOnClickListener(new View.OnClickListener() {
@@ -59,11 +61,10 @@ public class MainActivity extends AppCompatActivity {
     private void startQuiz() {
         stopMusic();
 
-        String name = editTextFst.getText().toString();
-//        Log.d(TAG, "name :" + name);
+        String[] fullName = {editTextFst.getText().toString(), editTextSnd.getText().toString()};
 
         Intent intent = new Intent(this, InstructionsActivity.class);
-        intent.putExtra("name", name);
+        intent.putExtra("fullName", fullName);
         startActivity(intent);
     }
 }

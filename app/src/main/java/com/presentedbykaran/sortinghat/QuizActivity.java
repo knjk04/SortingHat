@@ -37,10 +37,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     MusicController mMusicController;
 
     ProgressBar progressBar;
-<<<<<<< HEAD
-
-=======
->>>>>>> feature
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

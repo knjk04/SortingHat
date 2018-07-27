@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnBegin;
+    private EditText editTextFst;
     public static final String TAG = MainActivity.class.getSimpleName();
     private MusicController mMusicController;
 
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         createBackgroundMusic();
+
+        editTextFst = findViewById(R.id.txtFstName);
 
         btnBegin = findViewById(R.id.btnBegin);
         btnBegin.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void startQuiz() {
         stopMusic();
-        Intent intent = new Intent(this, QuizActivity.class);
+
+        String name = editTextFst.getText().toString();
+//        Log.d(TAG, "name :" + name);
+
+        Intent intent = new Intent(this, InstructionsActivity.class);
+        intent.putExtra("name", name);
         startActivity(intent);
     }
 }

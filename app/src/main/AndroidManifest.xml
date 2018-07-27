@@ -22,7 +22,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".QuizActivity" />
-        <activity android:name=".ResultsActivity"></activity>
+        <activity android:name=".ResultsActivity" />
+        <activity android:name=".InstructionsActivity"></activity>
     </application>
 
 </manifest>

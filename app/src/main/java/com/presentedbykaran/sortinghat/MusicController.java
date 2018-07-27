@@ -8,9 +8,9 @@ import java.util.Random;
 
 // Wrapper class for a MediaPlayer object
 public class MusicController {
-    private final int[] gryffindorMusic = {R.raw.hana};
-    private final int[] hufflepuffMusic = {R.raw.denali};
-    private final int[] ravenclawMusic  = {R.raw.banshee};
+    private final int[] gryffindorMusic = {R.raw.hana, R.raw.tobruk};
+    private final int[] hufflepuffMusic = {R.raw.denali, R.raw.calabria};
+    private final int[] ravenclawMusic  = {R.raw.banshee, R.raw.celsius, R.raw.kailua, R.raw.waikiki};
     private final int[] slytherinMusic  = {R.raw.castor};
 
     private MediaPlayer mediaPlayer = null;
@@ -39,19 +39,28 @@ public class MusicController {
     public void setFileHouse(House house) {
         Random rand = new Random();
         // all house music arrays should be the same length
-        int randomNum = rand.nextInt(gryffindorMusic.length);
+//        int randomNum = rand.nextInt(gryffindorMusic.length);
+        int randomNum;
 
         switch(house) {
             case Gryffindor:
+                randomNum = rand.nextInt(gryffindorMusic.length);
+                Log.d(TAG, "Random number in Gryffindor case: " + randomNum);
                 mFile = gryffindorMusic[randomNum];
                 break;
             case Ravenclaw:
+                randomNum = rand.nextInt(ravenclawMusic.length);
+                Log.d(TAG, "Random number in Ravenclaw case: " + randomNum);
                 mFile = ravenclawMusic[randomNum];
                 break;
             case Hufflepuff:
+                randomNum = rand.nextInt(hufflepuffMusic.length);
+                Log.d(TAG, "Random number in Hufflepuff case: " + randomNum);
                 mFile = hufflepuffMusic[randomNum];
                 break;
             case Slytherin:
+                randomNum = rand.nextInt(slytherinMusic.length);
+                Log.d(TAG, "Random number in Slytherin case: " + randomNum);
                 mFile = slytherinMusic[randomNum];
                 break;
         }

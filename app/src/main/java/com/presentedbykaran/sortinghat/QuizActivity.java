@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -35,6 +36,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     MusicController mMusicController;
 
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         rdBtn3 = findViewById(R.id.rdBtn3);
         rdBtn4 = findViewById(R.id.rdBtn4);
         radioGroup = findViewById(R.id.radioGroup);
+        progressBar = findViewById(R.id.progressBar);
 
         initQAndAArray();
         nextQuestion();
@@ -140,12 +144,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void nextQuestion() {
+        int incrementPercentBy = 100 / NUM_QUESTIONS_TO_ASK;
+
         if (currentIndexVal < NUM_QUESTIONS_TO_ASK) {
             mTxtQuestion.setText(arrQAndA[currentIndexVal].getQuestion(currentIndexVal));
             rdBtn1.setText(arrQAndA[currentIndexVal].getOption(questionNum++));
             rdBtn2.setText(arrQAndA[currentIndexVal].getOption(questionNum++));
             rdBtn3.setText(arrQAndA[currentIndexVal].getOption(questionNum++));
             rdBtn4.setText(arrQAndA[currentIndexVal].getOption(questionNum++));
+            progressBar.incrementProgressBy(incrementPercentBy);
         }
     }
 

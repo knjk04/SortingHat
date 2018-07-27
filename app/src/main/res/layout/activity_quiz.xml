@@ -36,16 +36,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtQuestion">
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestion"
+        app:layout_constraintVertical_bias="0.3">
 
         <RadioButton
             android:id="@+id/rdBtn1"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="1"
+            android:buttonTint="#FFFFFF"
             android:text="RadioButton"
             android:textColor="@android:color/white"
-            android:buttonTint="#FFFFFF"
             tools:text="Lie and say you don’t know (but hope that somebody else tells Professor
             Flitwick the truth)." />
 
@@ -54,9 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="1"
+            android:buttonTint="#FFFFFF"
             android:text="RadioButton"
             android:textColor="@android:color/white"
-            android:buttonTint="#FFFFFF"
             tools:text="Tell Professor Flitwick that he ought to ask your classmate (and resolve to
             tell your classmate that if he doesn’t tell the truth, you will)." />
 
@@ -65,9 +66,9 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="1"
+            android:buttonTint="#FFFFFF"
             android:text="RadioButton"
             android:textColor="@android:color/white"
-            android:buttonTint="#FFFFFF"
             tools:text="Tell Professor Flitwick the truth. If your classmate is prepared to win by
             cheating, he deserves to be found out. Also, as you are both in the same house, any
             points he loses will be regained by you, for coming first in his place." />
@@ -77,9 +78,9 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="1"
+            android:buttonTint="#FFFFFF"
             android:text="RadioButton"
             android:textColor="@android:color/white"
-            android:buttonTint="#FFFFFF"
             tools:text="You would not wait to be asked to tell Professor Flitwick the truth. If you
             knew that somebody was using a forbidden quill, you would tell the teacher before the
             exam started." />
@@ -100,4 +101,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
 </android.support.constraint.ConstraintLayout>

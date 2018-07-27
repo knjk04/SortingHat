@@ -61,7 +61,7 @@ public class MusicController {
             case Slytherin:
                 randomNum = rand.nextInt(slytherinMusic.length);
                 Log.d(TAG, "Random number in Slytherin case: " + randomNum);
-                mFile = slytherinMusic[randomNum];
+                mFile = gryffindorMusic[randomNum];
                 break;
         }
         mediaPlayer = MediaPlayer.create(mContext,mFile);

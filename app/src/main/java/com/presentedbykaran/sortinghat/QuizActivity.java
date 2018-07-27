@@ -37,7 +37,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     MusicController mMusicController;
 
     ProgressBar progressBar;
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,7 +148,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     public void nextQuestion() {
         int incrementPercentBy = 100 / NUM_QUESTIONS_TO_ASK;
-
         if (currentIndexVal < NUM_QUESTIONS_TO_ASK) {
             mTxtQuestion.setText(arrQAndA[currentIndexVal].getQuestion(currentIndexVal));
             rdBtn1.setText(arrQAndA[currentIndexVal].getOption(questionNum++));

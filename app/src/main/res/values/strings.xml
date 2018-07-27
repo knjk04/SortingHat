@@ -7,4 +7,6 @@
     <string name="instructions">You will be presented with a series of questions and multiple
     choice answers. There are no right answers. Please answer the questions truthfully, so that
     I can sort you into your correct house.</string>
+    <string name="sorting_hat">Sorting hat</string>
+    <string name="continueBtn">Continue</string>
 </resources>

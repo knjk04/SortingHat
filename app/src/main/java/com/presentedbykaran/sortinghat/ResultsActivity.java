@@ -1,5 +1,7 @@
 package com.presentedbykaran.sortinghat;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,15 +14,15 @@ import android.widget.TextView;
 public class ResultsActivity extends AppCompatActivity {
     private TextView txtHouse;
     private Button btnShare;
+    private ImageView imageView;
 
     private MusicController mMusicController;
-    ImageView imageView;
     private String mHouse;
 
     private final String GRYFFINDOR = "gryffindor!";
-    private final String RAVENCLAW = "ravenclaw!";
+    private final String RAVENCLAW  = "ravenclaw!";
     private final String HUFFLEPUFF = "hufflepuff!";
-    private final String SLYTHERIN = "slytherin!";
+    private final String SLYTHERIN  = "slytherin!";
 
     public static final String TAG = ResultsActivity.class.getSimpleName();
 
@@ -35,8 +37,11 @@ public class ResultsActivity extends AppCompatActivity {
 
         mHouse = intent.getStringExtra("house");
         txtHouse = findViewById(R.id.hogwartsHouse);
+
         imageView = findViewById(R.id.houseEmblem);
         setEmblem();
+        animate();
+
         txtHouse.setText(mHouse);
 
         btnShare = findViewById(R.id.btnShare);
@@ -53,6 +58,14 @@ public class ResultsActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(intent, "Share using"));
             }
         });
+    }
+
+    private void animate() {
+        ObjectAnimator rotateAnimation = ObjectAnimator.ofFloat(imageView, "rotation", 0f, 360f);
+        rotateAnimation.setDuration(1000);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.play(rotateAnimation);
+        animatorSet.start();
     }
 
     private void setEmblem() {
@@ -102,6 +115,7 @@ public class ResultsActivity extends AppCompatActivity {
         if (mMusicController.isPlaying()) mMusicController.stop();
     }
 
+    // Determines which house music to play
     private void strToHouse() {
         String house = mHouse.toLowerCase();
         Log.d(TAG, "house in strToHouse: " + txtHouse.getText());

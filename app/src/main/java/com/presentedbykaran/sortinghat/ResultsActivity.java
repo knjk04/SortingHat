@@ -50,7 +50,6 @@ public class ResultsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-//                stopMusic();
                 mMusicController.stop();
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");

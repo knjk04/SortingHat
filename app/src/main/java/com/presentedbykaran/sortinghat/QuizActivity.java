@@ -22,17 +22,17 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private Question[] arrQAndA = new Question[NUM_QUESTIONS_TO_ASK];
 
     private int mGryffindorTally = 0;
-    private int mRavenclawTally = 0;
+    private int mRavenclawTally  = 0;
     private int mHufflepuffTally = 0;
-    private int mSlytherinTally = 0;
+    private int mSlytherinTally  = 0;
 
     private int currentIndexVal = 0; // default value
-    private int questionNum = 0; // since answers ArrayList starts from 0
+    private int questionNum     = 0; // since answers ArrayList starts from 0
 
-    private final int OPTION_1 = 0;
-    private final int OPTION_2 = 1;
-    private final int OPTION_3 = 2;
-    private final int OPTION_4 = 3;
+    private final int OPTION_1    = 0;
+    private final int OPTION_2    = 1;
+    private final int OPTION_3    = 2;
+    private final int OPTION_4    = 3;
     private final int NUM_OPTIONS = 4;
 
     private MusicController mMusicController;

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -34,9 +35,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private final int OPTION_4 = 3;
     private final int NUM_OPTIONS = 4;
 
-    MusicController mMusicController;
+    private MusicController mMusicController;
 
-    ProgressBar progressBar;
+    private ProgressBar progressBar;
+    private ImageButton imBtnSoundQuiz;
+    private boolean isMuted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         rdBtn2.setOnClickListener(this);
         rdBtn3.setOnClickListener(this);
         rdBtn4.setOnClickListener(this);
+
+        imBtnSoundQuiz = findViewById(R.id.imBtnToggleSoundQuiz);
+    }
+
+    public void toggleSoundQuiz(View view) {
+        if (isMuted) {
+            imBtnSoundQuiz.setImageResource(R.drawable.volume_up_white_24dp);
+            createBackgroundMusic();
+        } else {
+            imBtnSoundQuiz.setImageResource(R.drawable.mute_white_24dp);
+            stopMusic();
+        }
+        isMuted = !isMuted;
     }
 
     @Override

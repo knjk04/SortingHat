@@ -3,26 +3,31 @@ package com.presentedbykaran.sortinghat;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ResultsActivity extends AppCompatActivity {
     private TextView txtHouse;
-    private Button btnShare;
     private ImageView imageView;
+
+    private ImageButton imBtnShare;
+    private ImageButton imBtnToggleSound;
+    private boolean isMuted = false;
 
     private MusicController mMusicController;
     private String mHouse;
 
     private final String GRYFFINDOR = "gryffindor!";
-    private final String RAVENCLAW  = "ravenclaw!";
+    private final String RAVENCLAW = "ravenclaw!";
     private final String HUFFLEPUFF = "hufflepuff!";
-    private final String SLYTHERIN  = "slytherin!";
+    private final String SLYTHERIN = "slytherin!";
 
     public static final String TAG = ResultsActivity.class.getSimpleName();
 
@@ -44,8 +49,9 @@ public class ResultsActivity extends AppCompatActivity {
 
         txtHouse.setText(mHouse);
 
-        btnShare = findViewById(R.id.btnShare);
-        btnShare.setOnClickListener(new View.OnClickListener() {
+        imBtnShare = findViewById(R.id.imBtnShare);
+        imBtnShare.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 stopMusic();
@@ -58,6 +64,21 @@ public class ResultsActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(intent, "Share using"));
             }
         });
+
+        imBtnToggleSound = findViewById(R.id.imToggleSoundBtn);
+    }
+
+    // On click listener
+    public void toggleSound(View view) {
+        Log.d(TAG, "In ResultsActivity's toggleSound()");
+        if (isMuted) {
+            imBtnToggleSound.setImageResource(R.drawable.volume_up_white_24dp);
+            createBackgroundMusic();
+        } else {
+            imBtnToggleSound.setImageResource(R.drawable.mute_white_24dp);
+            stopMusic();
+        }
+        isMuted = !isMuted;
     }
 
     private void animate() {

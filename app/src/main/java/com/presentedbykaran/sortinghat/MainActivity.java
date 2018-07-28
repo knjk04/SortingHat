@@ -8,28 +8,31 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnBegin;
-//    private EditText editTextFst;
-//    private EditText editTextSnd;
 
     private TextInputLayout txtInputFst;
     private TextInputLayout txtInputSnd;
 
     public static final String TAG = MainActivity.class.getSimpleName();
+
     private MusicController mMusicController;
+
+    private String mFstName;
+    private String mSndName;
+
+    private ImageButton imBtnToggleSound;
+    private boolean isMuted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        createBackgroundMusic();
-
-//        editTextFst = findViewById(R.id.txtFstName);
-//        editTextSnd = findViewById(R.id.txtSndName);
+        if (mMusicController == null) createBackgroundMusic();
 
         txtInputFst = findViewById(R.id.txtInputFstName);
         txtInputSnd = findViewById(R.id.txtInputSndName);
@@ -38,30 +41,46 @@ public class MainActivity extends AppCompatActivity {
         btnBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (editTextFst.getText().toString().isEmpty()) {
-//                    editTextFst.setError("Please fill in all fields");
-//                }
-
                 if (!isInputValid(view)) return;
 
                 stopMusic();
                 startQuiz();
             }
         });
+
+        imBtnToggleSound = findViewById(R.id.imBtnToggleSoundBtnMain);
     }
 
     private boolean isInputValid(View view) {
-        String fstName = txtInputFst.getEditText().getText().toString().trim();
-        String sndName = txtInputSnd.getEditText().getText().toString().trim();
+        mFstName = txtInputFst.getEditText().getText().toString().trim();
+        mSndName = txtInputSnd.getEditText().getText().toString().trim();
 
-        if (fstName.isEmpty() || sndName.isEmpty()) {
-            txtInputFst.setError("Name field cannot be empty");
-            Log.d(TAG, "One of the name fields was empty");
+        if (mFstName.isEmpty()) {
+            txtInputFst.setError("Please enter in a first name");
+            return false;
+        } else if (mSndName.isEmpty()) {
+            txtInputSnd.setError("Please enter in a last name");
             return false;
         }
 
         txtInputFst.setError(null); // removes error message
+        txtInputSnd.setError(null); // removes error message
         return true;
+    }
+
+    public void toggleSoundMain(View view) {
+        Log.d(TAG, "In MainActivity's toggleSound()");
+        if (isMuted) {
+            imBtnToggleSound.setImageResource(R.drawable.volume_up_white_24dp);
+            Log.d(TAG, "Was muted - MainActivity");
+            createBackgroundMusic();
+        } else {
+            imBtnToggleSound.setImageResource(R.drawable.mute_white_24dp);
+            Log.d(TAG, "Wasn't muted - MainActivity");
+            stopMusic();
+        }
+        isMuted = !isMuted;
+//        Log.d(TAG, "At the end of toggleSound in MainActivity");
     }
 
     @Override
@@ -83,15 +102,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void stopMusic() {
-        mMusicController.stop();
+        Log.d(TAG, "In stopMusic() in MainActivity");
+
+        if (mMusicController != null  && mMusicController.isPlaying()) {
+            Log.d(TAG, "Still playing - stopMusic(), MainActivity");
+            mMusicController.stop();
+        }
     }
 
     private void startQuiz() {
         stopMusic();
-
-//        String[] fullName = {editTextFst.getText().toString(), editTextSnd.getText().toString()};
-        String[] fullName = {txtInputFst.getEditText().getText().toString(),
-                txtInputSnd.getEditText().getText().toString()};
+        String[] fullName = {mFstName, mSndName};
 
         Log.d(TAG, "fstName: " + txtInputFst.getEditText().toString());
         Log.d(TAG, "sndName: " + txtInputSnd.getEditText().toString());

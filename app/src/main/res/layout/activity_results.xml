@@ -7,6 +7,17 @@
     android:background="@color/background"
     tools:context=".ResultsActivity">
 
+    <ImageView
+        android:id="@+id/houseEmblem"
+        android:layout_width="170dp"
+        android:layout_height="333dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/hogwartsHouse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:srcCompat="@drawable/gryffindor_crest_transparent" />
+
     <TextView
         android:id="@+id/hogwartsHouse"
         android:layout_width="217dp"
@@ -24,35 +35,43 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625"
+        app:layout_constraintVertical_bias="0.627"
         tools:text="Gryffindor!" />
 
-    <Button
-        android:id="@+id/btnShare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/imBtnShare"
+        android:layout_width="62dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
-        android:fontFamily="casual"
-        android:text="@string/shareBtnText"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:contentDescription="@string/shareBtn_content_description"
+        android:src="@drawable/share_white_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.271"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hogwartsHouse" />
+        app:layout_constraintTop_toBottomOf="@+id/hogwartsHouse"
+        app:layout_constraintVertical_bias="0.41" />
 
-    <ImageView
-        android:id="@+id/houseEmblem"
-        android:layout_width="170dp"
-        android:layout_height="333dp"
+    <ImageButton
+        android:id="@+id/imToggleSoundBtn"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/hogwartsHouse"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/mute_white_24dp"
+        android:onClick="toggleSound"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@drawable/gryffindor_crest_transparent" />
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toEndOf="@+id/imBtnShare"
+        app:layout_constraintTop_toBottomOf="@+id/hogwartsHouse"
+        app:layout_constraintVertical_bias="0.419" />
+
 </android.support.constraint.ConstraintLayout>

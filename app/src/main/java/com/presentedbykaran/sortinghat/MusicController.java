@@ -80,7 +80,8 @@ public class MusicController {
     }
 
     public boolean isPlaying() {
-       return mediaPlayer.isPlaying();
+        if (mediaPlayer != null) return mediaPlayer.isPlaying();
+        return false;
     }
 
 

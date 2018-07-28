@@ -73,10 +73,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             // now be the muted button (because if the witch/wizard clicks on it, it will then mute
             // the sound
             imBtnSoundQuiz.setImageResource(R.drawable.mute_white_24dp);
-            createBackgroundMusic();
+            mMusicController.resumeMusic();
         } else {
             imBtnSoundQuiz.setImageResource(R.drawable.volume_up_white_24dp);
-            stopMusic();
+            mMusicController.pauseMusic();
         }
         isMuted = !isMuted;
     }
@@ -84,23 +84,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-        stopMusic();
+        mMusicController.pauseMusic();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (mMusicController == null) createBackgroundMusic();
+        mMusicController.resumeMusic();
     }
 
     private void createBackgroundMusic() {
         mMusicController = new MusicController(this);
         mMusicController.setFile(R.raw.bensound_memories);
         mMusicController.start();
-    }
-
-    private void stopMusic() {
-        mMusicController.stop();
     }
 
     @Override
@@ -125,7 +121,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
         currentIndexVal++;
         if (currentIndexVal == NUM_QUESTIONS_TO_ASK) {
-            stopMusic();
+            mMusicController.stop();
             Intent intent = new Intent(this, ResultsActivity.class);
             intent.putExtra("house", determineHouse());
             startActivity(intent);

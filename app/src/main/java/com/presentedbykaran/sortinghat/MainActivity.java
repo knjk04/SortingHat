@@ -7,23 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnBegin;
-
-    private TextInputLayout txtInputFst;
-    private TextInputLayout txtInputSnd;
-
+    private TextInputLayout txtInputFst, txtInputSnd;
     public static final String TAG = MainActivity.class.getSimpleName();
-
     private MusicController mMusicController;
-
-    private String mFstName;
-    private String mSndName;
-
+    private String mFstName, mSndName;
     private ImageButton imBtnToggleSound;
     private boolean isMuted = false;
 
@@ -43,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!isInputValid(view)) return;
 
-                stopMusic();
+                mMusicController.stop();
                 startQuiz();
             }
         });
@@ -76,26 +68,25 @@ public class MainActivity extends AppCompatActivity {
             // the sound
             imBtnToggleSound.setImageResource(R.drawable.mute_white_24dp);
             Log.d(TAG, "Was muted - MainActivity");
-            createBackgroundMusic();
+            mMusicController.resumeMusic();
         } else {
             imBtnToggleSound.setImageResource(R.drawable.volume_up_white_24dp);
             Log.d(TAG, "Wasn't muted - MainActivity");
-            stopMusic();
+            mMusicController.pauseMusic();
         }
         isMuted = !isMuted;
-//        Log.d(TAG, "At the end of toggleSound in MainActivity");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        stopMusic();
+        mMusicController.pauseMusic();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (mMusicController == null) createBackgroundMusic();
+        mMusicController.resumeMusic();
     }
 
     private void createBackgroundMusic() {
@@ -104,22 +95,8 @@ public class MainActivity extends AppCompatActivity {
         mMusicController.start();
     }
 
-    private void stopMusic() {
-        Log.d(TAG, "In stopMusic() in MainActivity");
-
-//        if (mMusicController != null  && mMusicController.isPlaying()) {
-//            Log.d(TAG, "Still playing - stopMusic(), MainActivity");
-//            mMusicController.stop();
-//        }
-            mMusicController.stop();
-
-//        mMusicController = null;
-//            if (mMusicController == null) Log.d(TAG, "null in stopMusic()");
-//            else Log.d(TAG, "Not null in stopMusic()");
-    }
-
     private void startQuiz() {
-        stopMusic();
+        mMusicController.stop();
         String[] fullName = {mFstName, mSndName};
 
         Log.d(TAG, "fstName: " + txtInputFst.getEditText().toString());

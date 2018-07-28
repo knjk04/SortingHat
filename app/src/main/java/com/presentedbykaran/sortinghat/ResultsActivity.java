@@ -3,12 +3,10 @@ package com.presentedbykaran.sortinghat;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,8 +29,6 @@ public class ResultsActivity extends AppCompatActivity {
 
     public static final String TAG = ResultsActivity.class.getSimpleName();
 
-    private int mTime = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +50,8 @@ public class ResultsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                stopMusic();
+//                stopMusic();
+                mMusicController.stop();
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 String shareBody = "I have been sorted into " + txtHouse.getText() +
@@ -73,10 +70,10 @@ public class ResultsActivity extends AppCompatActivity {
         Log.d(TAG, "In ResultsActivity's toggleSound()");
         if (isMuted) {
             imBtnToggleSound.setImageResource(R.drawable.mute_white_24dp);
-            createBackgroundMusic();
+            mMusicController.resumeMusic();
         } else {
             imBtnToggleSound.setImageResource(R.drawable.volume_up_white_24dp);
-            stopMusic();
+            mMusicController.pauseMusic();
         }
         isMuted = !isMuted;
     }
@@ -114,26 +111,19 @@ public class ResultsActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (mMusicController != null && mMusicController.isPlaying()) {
-            mTime = mMusicController.getCurrentPosition();
-            stopMusic();
-        }
+        mMusicController.pauseMusic();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mMusicController.start();
+        mMusicController.resumeMusic();
     }
 
     private void createBackgroundMusic() {
         mMusicController = new MusicController(this);
         strToHouse();
         mMusicController.start();
-    }
-
-    private void stopMusic() {
-        if (mMusicController.isPlaying()) mMusicController.stop();
     }
 
     // Determines which house music to play

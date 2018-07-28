@@ -14,7 +14,7 @@ public class MusicController {
     private final int[] slytherinMusic  = {R.raw.castor};
 
     private MediaPlayer mediaPlayer = null;
-    private int mTime;
+    private int mTime = 0;
     private int mFile = Integer.MAX_VALUE;
 
     public static final String TAG = MusicController.class.getSimpleName();
@@ -45,23 +45,19 @@ public class MusicController {
         switch(house) {
             case Gryffindor:
                 randomNum = rand.nextInt(gryffindorMusic.length);
-                Log.d(TAG, "Random number in Gryffindor case: " + randomNum);
                 mFile = gryffindorMusic[randomNum];
                 break;
             case Ravenclaw:
                 randomNum = rand.nextInt(ravenclawMusic.length);
-                Log.d(TAG, "Random number in Ravenclaw case: " + randomNum);
                 mFile = ravenclawMusic[randomNum];
                 break;
             case Hufflepuff:
                 randomNum = rand.nextInt(hufflepuffMusic.length);
-                Log.d(TAG, "Random number in Hufflepuff case: " + randomNum);
                 mFile = hufflepuffMusic[randomNum];
                 break;
             case Slytherin:
                 randomNum = rand.nextInt(slytherinMusic.length);
-                Log.d(TAG, "Random number in Slytherin case: " + randomNum);
-                mFile = gryffindorMusic[randomNum];
+                mFile = slytherinMusic[randomNum];
                 break;
         }
         mediaPlayer = MediaPlayer.create(mContext,mFile);
@@ -70,7 +66,14 @@ public class MusicController {
     public void pauseMusic() {
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mTime = mediaPlayer.getCurrentPosition();
-            stop();
+            mediaPlayer.pause();
+        }
+    }
+
+    public void resumeMusic() {
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.seekTo(mTime);
+            mediaPlayer.start();
         }
     }
 
@@ -90,12 +93,6 @@ public class MusicController {
             if(mediaPlayer.isPlaying()) mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
-            Log.d(TAG, "In stop() in MusicController");
         }
     }
-
-    public int getCurrentPosition() {
-        return mediaPlayer.getCurrentPosition();
-    }
-
 }

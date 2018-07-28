@@ -69,10 +69,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     public void toggleSoundQuiz(View view) {
         if (isMuted) {
-            imBtnSoundQuiz.setImageResource(R.drawable.volume_up_white_24dp);
+            // If it was muted and you click on it, then it is no longer muted, so the button should
+            // now be the muted button (because if the witch/wizard clicks on it, it will then mute
+            // the sound
+            imBtnSoundQuiz.setImageResource(R.drawable.mute_white_24dp);
             createBackgroundMusic();
         } else {
-            imBtnSoundQuiz.setImageResource(R.drawable.mute_white_24dp);
+            imBtnSoundQuiz.setImageResource(R.drawable.volume_up_white_24dp);
             stopMusic();
         }
         isMuted = !isMuted;
@@ -105,7 +108,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.rdBtn1:
                 updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS *
-                        currentIndexVal + OPTION_1)); // 0,4,8,12
+                        currentIndexVal + OPTION_1)); // 0,4,8/,12
                 break;
             case R.id.rdBtn2:
                 updateTally(arrQAndA[currentIndexVal].getHouse(NUM_OPTIONS *

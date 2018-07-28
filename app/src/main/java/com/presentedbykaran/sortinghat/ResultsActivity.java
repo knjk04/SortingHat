@@ -72,10 +72,10 @@ public class ResultsActivity extends AppCompatActivity {
     public void toggleSound(View view) {
         Log.d(TAG, "In ResultsActivity's toggleSound()");
         if (isMuted) {
-            imBtnToggleSound.setImageResource(R.drawable.volume_up_white_24dp);
+            imBtnToggleSound.setImageResource(R.drawable.mute_white_24dp);
             createBackgroundMusic();
         } else {
-            imBtnToggleSound.setImageResource(R.drawable.mute_white_24dp);
+            imBtnToggleSound.setImageResource(R.drawable.volume_up_white_24dp);
             stopMusic();
         }
         isMuted = !isMuted;

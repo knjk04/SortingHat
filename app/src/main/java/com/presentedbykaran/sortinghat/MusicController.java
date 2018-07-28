@@ -90,6 +90,7 @@ public class MusicController {
             if(mediaPlayer.isPlaying()) mediaPlayer.stop();
             mediaPlayer.release();
             mediaPlayer = null;
+            Log.d(TAG, "In stop() in MusicController");
         }
     }
 

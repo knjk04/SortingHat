@@ -71,11 +71,14 @@ public class MainActivity extends AppCompatActivity {
     public void toggleSoundMain(View view) {
         Log.d(TAG, "In MainActivity's toggleSound()");
         if (isMuted) {
-            imBtnToggleSound.setImageResource(R.drawable.volume_up_white_24dp);
+            // If it was muted and you click on it, then it is no longer muted, so the button should
+            // now be the muted button (because if the witch/wizard clicks on it, it will then mute
+            // the sound
+            imBtnToggleSound.setImageResource(R.drawable.mute_white_24dp);
             Log.d(TAG, "Was muted - MainActivity");
             createBackgroundMusic();
         } else {
-            imBtnToggleSound.setImageResource(R.drawable.mute_white_24dp);
+            imBtnToggleSound.setImageResource(R.drawable.volume_up_white_24dp);
             Log.d(TAG, "Wasn't muted - MainActivity");
             stopMusic();
         }
@@ -92,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        createBackgroundMusic();
+        if (mMusicController == null) createBackgroundMusic();
     }
 
     private void createBackgroundMusic() {
@@ -104,10 +107,15 @@ public class MainActivity extends AppCompatActivity {
     private void stopMusic() {
         Log.d(TAG, "In stopMusic() in MainActivity");
 
-        if (mMusicController != null  && mMusicController.isPlaying()) {
-            Log.d(TAG, "Still playing - stopMusic(), MainActivity");
+//        if (mMusicController != null  && mMusicController.isPlaying()) {
+//            Log.d(TAG, "Still playing - stopMusic(), MainActivity");
+//            mMusicController.stop();
+//        }
             mMusicController.stop();
-        }
+
+//        mMusicController = null;
+//            if (mMusicController == null) Log.d(TAG, "null in stopMusic()");
+//            else Log.d(TAG, "Not null in stopMusic()");
     }
 
     private void startQuiz() {

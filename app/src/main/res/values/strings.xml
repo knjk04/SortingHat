@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Sorting Hat</string>
-    <string name="shareBtnText">Spread the magic</string>
     <string name="fstNameEditTextHint">Enter your first name</string>
     <string name="sndNameEditTextHint">Enter your last name</string>
 

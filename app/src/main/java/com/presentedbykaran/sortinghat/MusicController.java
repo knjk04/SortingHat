@@ -8,10 +8,17 @@ import java.util.Random;
 
 // Wrapper class for a MediaPlayer object
 public class MusicController {
-    private final int[] gryffindorMusic = {R.raw.hana, R.raw.tobruk};
-    private final int[] hufflepuffMusic = {R.raw.denali, R.raw.calabria};
-    private final int[] ravenclawMusic  = {R.raw.banshee, R.raw.celsius, R.raw.kailua, R.raw.waikiki};
-    private final int[] slytherinMusic  = {R.raw.castor};
+    private final int[] gryffindorMusic = {R.raw.tobruk, R.raw.parbat, R.raw.wallula, R.raw.leopard,
+                                           R.raw.maggiore};
+
+    private final int[] hufflepuffMusic = {R.raw.denali, R.raw.copacabana,
+                                           R.raw.zanzibar, R.raw.flowers, R.raw.manticore};
+
+    private final int[] ravenclawMusic  = {R.raw.banshee, R.raw.celsius, R.raw.mistry, R.raw.como,
+                                           R.raw.elba};
+
+    private final int[] slytherinMusic  = {R.raw.centurion, R.raw.lieutenant, R.raw.arachne,
+                                           R.raw.nanga, R.raw.turin};
 
     private MediaPlayer mediaPlayer = null;
     private int mTime = 0;
@@ -38,8 +45,6 @@ public class MusicController {
     // This method is used for selecting music based on the house the wizard/witch was sorted into
     public void setFileHouse(House house) {
         Random rand = new Random();
-        // all house music arrays should be the same length
-//        int randomNum = rand.nextInt(gryffindorMusic.length);
         int randomNum;
 
         switch(house) {

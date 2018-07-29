@@ -54,9 +54,9 @@ Gryffindor
 Slytherin
 What kind of instrument most pleases your ear?
 The violin
-The trumpet
+The flute
 The piano
-The drum
+The electric guitar
 Slytherin
 Hufflepuff
 Ravenclaw
@@ -89,7 +89,7 @@ Hufflepuff
 Slytherin
 Gryffindor
 A Muggle confronts you and says that they are sure you are a witch or wizard. Do you:
-Ask what makes them think so?
+Ask what makes them think so before performing a memory charm on them?
 Agree, and ask whether they’d like a free sample of a jinx?
 Agree, and walk away, leaving them to wonder whether you are bluffing?
 Tell them that you are worried about their mental health, and offer to call a doctor.

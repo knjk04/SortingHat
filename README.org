@@ -1,16 +1,14 @@
 * Table of contents
   - [[https://github.com/knjk04/SortingHat/tree/feature#what-is-sorting-hat][Intro: What is Sorting Hat?]]
-  - [[https://github.com/knjk04/SortingHat#installation][Installation]]
-  - [[https://github.com/knjk04/SortingHat/tree/master#modifying-the-questionsanswers][Modifying the questions/answers]]
-  - [[https://github.com/knjk04/SortingHat/tree/master#contributing][Contributing]]
-    - [[https://github.com/knjk04/SortingHat/tree/master#readme][README]]
-    - [[https://github.com/knjk04/SortingHat/tree/master#branches][Branches]]
-  - [[https://github.com/knjk04/SortingHat/tree/master#support][Support]]
   - [[https://github.com/knjk04/SortingHat/tree/master#acknowledgements][Acknowledgements]]
 
 * What is Sorting hat?
   Android app that informs you of your Hogwarts house based on your responses to
-  the questions (a quiz)
+  the questions (a quiz).
+
+  This app requires Android 4.4 KitKat and above (API 19 and later).
+
+  If you would like to contribute, please check out the [[https://github.com/knjk04/SortingHat/wiki/Contributions][contributions wiki page]].
 
   /Please bear in mind that the actual app may look slightly different to the
   screenshots below if small UI changes are made./
@@ -18,90 +16,6 @@
   this./
 
   [[file:repoMedia/allQuarterRes.png]]
-
-* Installation
-  Below are 2 ways you can get the app up and running on your Android phone (untested with Android tablets, but it may work fine)
-
-  Either...
-  - Download the APK -- please see the release section for more information. Download links are available in the [[https://github.com/knjk04/SortingHat/tree/master/apk][apk]] folder
-
-
-  - Download the source code files and build the project using Android Studio
-
-* Modifying the questions/answers
-  -  Add/alter your own questions and/or answers in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/res/raw/questions.txt][questions.txt]] (click on the
-     link to see the absolute file path)
-
-  Format:
-  #+BEGIN_SRC
-  Line 1: [question]
-  Line 2: [answer 1]
-  Line 3: [answer 2]
-  Line 4: [answer 3]
-  Line 5: [answer 4]
-  Line 6: [house that corresponds to answer 1 (note: case insensitive)]
-  Line 7: [house that corresponds to answer 2 (note: case insensitive)]
-  Line 8: [house that corresponds to answer 3 (note: case insensitive)]
-  Line 9: [house that corresponds to answer 4 (note: case insensitive)]
-  #+END_SRC
-
-  Please follow this pattern for subsequent questions. 
-
-  -  Change the number of questions to match the number of questions you want to
-     ask in [[https://github.com/knjk04/SortingHat/blob/feature/app/src/main/java/com/presentedbykaran/sortinghat/QuizActivity.java][QuizActivity.java]]
-     #+BEGIN_SRC java
-     private final int NUM_QUESTIONS_TO_ASK = 15;
-     #+END_SRC
-  
-  Notes:
-  - There has to be 4 options currently. Hopefully, this will be changed to be
-    flexible.
-    - *This may mean that the format may change. If it does, this section will
-      be updated accordingly*
-
-
-  - Line breaks are not permitted since it will be mistaken for something else
-    (e.g. answer 1 if on the second line)  
-
-
-  - Questions and answers (houses, too, but they're short, anyway) can only be 
-    on one line. If you have a a very long question and decide to break it up
-    over more than one line, the second line will be regarded as answer 1 and
-    the third as answer 2 and so on
-
-* Contributing
-  - All contributions are very much appreciated :) 
-
-**    README
-  - This README was made using Org mode with Emacs. Please respect this (use Org
-    mode syntax) if you would like to make any changes to the README
-
-
-  - Kindly abide by the 80 character limit convention
-
-
-  - If you would like to work on a new feature, we kindly request that you let
-    us know, so that someone else doesn't spend time working on the same thing
-
-
-**    Branches
-    - The master branch is a protected branch, so you are unable to push to this 
-      directly. Please make your own branch and then submit a PR
-
-* Support
-  Android 4.4 KitKat and above (API 19 and later)
-  
-  #+CAPTION: Tested devices
-|   | Device      | Android version | API Level | Version |
-|---+-------------+-----------------+-----------+---------|
-| 1 | Pixel XL    |               9 |        28 | V1      |
-| 2 | OnePlus One |           5.0.2 |        21 | V1      |
-| 3 | Pixel XL    |               9 |        28 | V1.1    |
-| 4 | Pixel XL    |               9 |        28 | V1.2    |
-
-
-  If you have tested the app on a device (physical device, not on a simulator) 
-  that is not listed above, please add the device to the table!
 
 * Acknowledgements & Disclaimers
   - The owner of this repo don't own any of the Harry Potter rights (copyrights,

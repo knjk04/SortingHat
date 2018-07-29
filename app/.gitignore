@@ -1,2 +1,6 @@
 /build
 .idea/
+local.properties
+SortingHat.iml
+app/app.iml
+.gradle/

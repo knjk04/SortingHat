@@ -10,4 +10,5 @@
     <string name="continueBtn">Continue</string>
     <string name="readyBtn">I\'m ready</string>
     <string name="shareBtn_content_description">Share button</string>
+    <string name="toggleSoundBtnContentDescription">toggle sound</string>
 </resources>

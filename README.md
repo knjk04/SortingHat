@@ -6,7 +6,7 @@
   Android app that informs you of your Hogwarts house based on your responses to
   the questions (a quiz).
 
-  This app requires Android 4.4 KitKat and above (API 19 and later).
+  *Requirements*: Android 5.0 Lollipop and above (API 21 and later).
 
   If you would like to contribute, please check out the [contributions wiki page](https://github.com/knjk04/SortingHat/wiki/Contributions)
 

@@ -1,43 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--<ScrollView -->
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="fill_vertical"
     android:background="@color/background"
-    tools:context=".QuizActivity">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/txtQuestion"
-        android:layout_width="347dp"
-        android:layout_height="128dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="One of your house mates has cheated in a Hogwarts exam by using a Self-Spelling
-        Quill. Now he has come top of the class in Charms, beating you into second place. Professor
-        Flitwick is suspicious of what happened. He draws you to one side after his lesson and asks
-        you whether or not your classmate used a forbidden quill. What do you do?" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".QuizActivity">
+
+
+        <!--Another scroll view so that the question is scrollable, too -->
+        <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="162dp">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<android.support.v4.widget.NestedScrollView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<ScrollView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content">-->
+            <TextView
+                android:id="@+id/txtQuestion"
+                android:layout_width="369dp"
+                android:layout_height="138dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="One of your house mates has cheated in a Hogwarts exam by using a
+                    Self-Spelling Quill. Now he has come top of the class in Charms, beating you
+                    into second place. Professor Flitwick is suspicious of what happened. He draws
+                    you to one side after his lesson and asks you whether or not your classmate used
+                    a forbidden quill. What do you do?" />
+            <!--</ScrollView>-->
+        <!--</LinearLayout>-->
+
+    <!--</android.support.v4.widget.NestedScrollView>-->
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="340dp"
-        android:layout_height="363dp"
+        android:layout_width="wrap_content"
+        android:layout_height="334dp"
+        android:layout_gravity="center"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtQuestion"
-        app:layout_constraintVertical_bias="0.3">
+        android:layout_marginTop="12dp">
 
         <RadioButton
             android:id="@+id/rdBtn1"
@@ -45,7 +69,6 @@
             android:layout_height="80dp"
             android:layout_weight="1"
             android:buttonTint="#FFFFFF"
-            android:text="RadioButton"
             android:textColor="@android:color/white"
             tools:text="Lie and say you don’t know (but hope that somebody else tells Professor
             Flitwick the truth)." />
@@ -56,7 +79,6 @@
             android:layout_height="80dp"
             android:layout_weight="1"
             android:buttonTint="#FFFFFF"
-            android:text="RadioButton"
             android:textColor="@android:color/white"
             tools:text="Tell Professor Flitwick that he ought to ask your classmate (and resolve to
             tell your classmate that if he doesn’t tell the truth, you will)." />
@@ -67,7 +89,6 @@
             android:layout_height="80dp"
             android:layout_weight="1"
             android:buttonTint="#FFFFFF"
-            android:text="RadioButton"
             android:textColor="@android:color/white"
             tools:text="Tell Professor Flitwick the truth. If your classmate is prepared to win by
             cheating, he deserves to be found out. Also, as you are both in the same house, any
@@ -79,56 +100,47 @@
             android:layout_height="80dp"
             android:layout_weight="1"
             android:buttonTint="#FFFFFF"
-            android:text="RadioButton"
             android:textColor="@android:color/white"
             tools:text="You would not wait to be asked to tell Professor Flitwick the truth. If you
             knew that somebody was using a forbidden quill, you would tell the teacher before the
             exam started." />
     </RadioGroup>
 
-    <ScrollView
-        android:layout_width="368dp"
-        android:layout_height="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="93dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.Material.ProgressBar.Horizontal"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.131" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <ImageButton
-        android:id="@+id/imBtnToggleSoundQuiz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/transparent"
-        android:onClick="toggleSoundQuiz"
-        android:src="@drawable/mute_white_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/progressBar"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-</android.support.constraint.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/imBtnToggleSoundQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/toggleSoundBtnContentDescription"
+            android:onClick="toggleSoundQuiz"
+            android:src="@drawable/mute_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintStart_toEndOf="@+id/progressBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout><!--</ScrollView>--></android.support.v4.widget.NestedScrollView>

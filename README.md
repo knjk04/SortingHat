@@ -1,6 +1,8 @@
 # Table of contents
-  - [Intro](https://github.com/knjk04/SortingHat/tree/feature#what-is-sorting-hat)
-  - [Acknowledgements & Disclaimers](https://github.com/knjk04/SortingHat/tree/master#acknowledgements)
+  - [Intro](https://github.com/knjk04/SortingHat#what-is-sorting-hat)
+  - [Acknowledgements & Disclaimers](https://github.com/knjk04/SortingHat#acknowledgements--disclaimers)
+  
+  Please note that the Table of contents links direct you to the corresponding section in the master branch
 
 # What is Sorting hat?
   Android app that informs you of your Hogwarts house based on your responses to

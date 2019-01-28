@@ -18,7 +18,7 @@
   [[file:repoMedia/allQuarterRes.png]]
 
 * Acknowledgements & Disclaimers
-  - The owner of this repo don't own any of the Harry Potter rights (copyrights,
+  - The owner of this repo does not own any of the Harry Potter rights (copyrights,
     trademarks, etc.), so full credit to J.K. Rowling (and her Wizarding world) and Warner Bros.
 
 
